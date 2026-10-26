@@ -8,6 +8,12 @@
   --sf-surface: #F2F8FB; --sf-rule: #D6E6EE; --sf-muted: #5E6E74;
 }
 
-/* Header-only slides: center horizontally and vertically */
-.reveal .slides section.title, .reveal .slides section.section-break { text-align: center !important; align-items: center !important; justify-content: center !important; flex-direction: column; }
-.reveal .slides section.title .subtitle, .reveal .slides section.section-break p { margin-left: auto; margin-right: auto; }
+/* Title, section-break and closing slides: content block vertically centered, text left-aligned. */
+.reveal .slides > section.title, .reveal .slides > section.section-break, .reveal .slides > section.closing {
+  display: flex !important; flex-direction: column; justify-content: center !important; align-items: flex-start !important;
+  height: 100% !important; top: 0 !important; text-align: left !important; padding-bottom: 0; }
+.reveal .slides > section.title > *, .reveal .slides > section.section-break > *, .reveal .slides > section.closing > * {
+  margin-top: 0 !important; margin-bottom: 0 !important; }
+.reveal .slides > section.title > h1, .reveal .slides > section.section-break > h2, .reveal .slides > section.closing > h2 { margin-bottom: .5em !important; max-width: 85%; }
+.reveal .slides > section.title .subtitle { margin-left: 0; margin-right: 0; }
+.reveal .slides > section.closing ul { list-style-position: outside; margin-left: 1.2em; }
