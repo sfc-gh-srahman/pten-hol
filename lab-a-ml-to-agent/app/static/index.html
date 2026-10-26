@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PTEN+ DSA | Drilling Data Science Assistant</title>
+<link rel="icon" href="/static/patterson-logo.svg">
+<style>
+:root{
+  --red:#e51b24; --red-dark:#b3141b; --ink:#212529; --charcoal:#282828; --coal:#1a1c1e;
+  --paper:#fdfcfb; --mist:#f3f2f1; --line:#e2dfdc; --grey:#787676; --ok:#2f9e6e; --amber:#e8a33d;
+  --head:"rift","Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --body:"DM Sans",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:var(--body);color:var(--ink);background:var(--mist);font-size:15px;line-height:1.45}
+header{display:flex;align-items:center;gap:18px;padding:12px clamp(14px,3vw,28px);background:var(--charcoal);color:#fff;border-bottom:4px solid var(--red)}
+header img{height:30px;width:auto;filter:brightness(0) invert(1)}
+.brand-sep{width:1px;height:28px;background:#555}
+.product{font-family:var(--head);font-size:24px;letter-spacing:.06em;text-transform:uppercase;font-stretch:condensed;font-weight:700}
+.product b{color:var(--red)}
+.tagline{color:#bdbab7;font-size:13px}
+.spacer{flex:1}
+.pill{font-size:12px;color:#d8d5d2;border:1px solid #555;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.pill i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:6px}
+main{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:18px;padding:18px clamp(14px,3vw,28px);max-width:1680px;margin:auto}
+h2{font-family:var(--head);text-transform:uppercase;letter-spacing:.05em;font-stretch:condensed;font-size:17px;margin:0 0 10px;color:var(--charcoal)}
+h2 small{font-family:var(--body);text-transform:none;letter-spacing:0;color:var(--grey);font-weight:400;font-size:13px;margin-left:8px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.kpi{background:#fff;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:8px;padding:12px 14px}
+.kpi .v{font-family:var(--head);font-size:34px;font-weight:700;line-height:1;color:var(--charcoal)}
+.kpi .l{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--grey);margin-top:6px}
+.kpi .sub{font-size:12px;color:var(--red);margin-top:4px}
+.pillar{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--charcoal);border-radius:4px;padding:2px 6px;margin-right:6px;vertical-align:2px;font-family:var(--body)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.wide{grid-column:1/-1}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+select,input[type=date]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+label{font-size:12px;color:var(--grey);text-transform:uppercase;letter-spacing:.06em}
+.chart{position:relative;height:280px}.chart.tall{height:320px}
+.chart>canvas{width:100%!important;height:100%!important}
+.hint{font-size:12px;color:var(--grey);margin-top:6px}
+/* agent panel */
+aside{display:flex;flex-direction:column;background:var(--coal);color:#eceae8;border-radius:12px;overflow:hidden;position:sticky;top:18px;height:calc(100vh - 110px);min-height:520px}
+.samples-btn{font:inherit;font-size:12px;background:transparent;color:#d8d5d2;border:1px solid #444;border-radius:999px;padding:5px 12px;cursor:pointer;align-self:flex-start;margin:10px 16px 0}
+.samples-btn:hover,.samples-btn[aria-expanded=true]{border-color:var(--red);color:#fff}
+.samples{position:absolute;left:12px;right:12px;bottom:100%;margin-bottom:6px;max-height:55vh;overflow-y:auto;background:#24262a;border:1px solid #45474a;border-radius:10px;box-shadow:0 12px 32px rgba(0,0,0,.5);padding:8px;z-index:5}
+.samples[hidden]{display:none}
+.samples h3{margin:4px 8px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#9c9894;font-weight:600}
+.samples button{display:block;width:100%;text-align:left;font:inherit;font-size:13px;background:transparent;color:#e2dfdc;border:0;border-radius:6px;padding:8px 10px;cursor:pointer}
+.samples button:hover,.samples button:focus{background:#3a2224;color:#fff;outline:none}
+.composer{position:relative;display:flex;flex-direction:column}
+.agent-head{padding:14px 16px;border-bottom:1px solid #333;display:flex;align-items:center;gap:10px}
+.agent-head .mark{width:30px;height:30px;border-radius:7px;background:var(--red);display:grid;place-items:center;font-family:var(--head);font-weight:700;color:#fff}
+.agent-head .t{font-family:var(--head);text-transform:uppercase;letter-spacing:.06em;font-size:18px}
+.agent-head .s{font-size:12px;color:#9c9894}
+.context{font-size:12px;color:#c9c5c1;padding:8px 16px;border-bottom:1px solid #2c2c2c;background:#202224}
+.context b{color:#fff}
+.context{display:flex;align-items:center;gap:8px}
+.scope{display:inline-flex;border:1px solid #444;border-radius:999px;overflow:hidden;margin-left:auto}
+.scope button{font:inherit;font-size:11px;background:transparent;color:#bdb9b5;border:0;padding:4px 10px;cursor:pointer}
+.scope button[aria-pressed=true]{background:var(--red);color:#fff}
+#log{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.msg{padding:10px 12px;border-radius:10px;max-width:100%;overflow-wrap:anywhere}
+.msg.user{background:var(--red);color:#fff;align-self:flex-end;max-width:85%}
+.msg.bot{background:#2a2c2f;border:1px solid #3a3c3f}
+.msg.bot table{border-collapse:collapse;margin:8px 0;font-size:13px;width:100%}
+.msg.bot th,.msg.bot td{border:1px solid #45474a;padding:4px 6px;text-align:left}
+.msg.bot th{background:#33363a}
+.msg.bot ul{padding-left:18px;margin:6px 0}
+.msg.bot p{margin:0 0 8px}
+.tools{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.tools span{font-size:11px;background:#3a2224;color:#ffb4b7;border:1px solid #5a2a2d;border-radius:999px;padding:2px 8px}
+.typing{color:#9c9894;font-style:italic}
+.fb{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12px;color:#9c9894}
+.fb button{font:inherit;background:transparent;border:1px solid #45474a;color:#d8d5d2;border-radius:6px;padding:2px 8px;cursor:pointer}
+.fb button:hover{border-color:var(--red);color:#fff}
+.fb button.on{background:var(--red);border-color:var(--red);color:#fff}
+.fb input{flex:1;font:inherit;font-size:12px;background:#121314;border:1px solid #444;border-radius:6px;color:#fff;padding:3px 8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px 0}
+.chips button{font:inherit;font-size:12px;background:#2a2c2f;color:#e2dfdc;border:1px solid #444;border-radius:999px;padding:5px 10px;cursor:pointer}
+.chips button:hover{border-color:var(--red);color:#fff}
+form{display:flex;gap:8px;padding:12px 16px 16px}
+textarea{flex:1;font:inherit;resize:none;height:46px;min-height:46px;max-height:140px;padding:10px 12px;border-radius:8px;border:1px solid #444;background:#121314;color:#fff;line-height:1.4}
+button.send{font-family:var(--head);text-transform:uppercase;letter-spacing:.08em;font-size:15px;font-weight:700;background:var(--red);color:#fff;border:0;border-radius:8px;padding:0 18px;cursor:pointer;align-self:flex-end;height:46px}
+button.send:hover{background:var(--red-dark)}
+button.send:disabled{opacity:.5;cursor:wait}
+footer{text-align:center;font-size:12px;color:var(--grey);padding:4px 0 18px}
+@media(max-width:1500px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1180px){main{grid-template-columns:1fr}aside{position:static;height:640px}}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.tagline,.pill{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <img src="/static/patterson-logo.svg" alt="Patterson-UTI">
+  <div class="brand-sep"></div>
+  <div>
+    <div class="product">PTEN<b>+</b> DSA</div>
+    <div class="tagline">Drilling Data Science Assistant</div>
+  </div>
+  <div class="spacer"></div>
+  <span class="pill"><i></i>Snowflake Cortex Agent · SPCS</span>
+  <span class="pill" id="range">Loading…</span>
+</header>
+
+<main>
+<section>
+  <div class="kpis">
+    <div class="kpi"><div class="v" id="k-rigs">–</div><div class="l">Active rigs</div></div>
+    <div class="kpi"><div class="v" id="k-atrisk">–</div><div class="l">Rigs at risk (latest day)</div></div>
+    <div class="kpi"><div class="v" id="k-stands">–</div><div class="l">High-risk stands (latest day)</div></div>
+    <div class="kpi"><div class="v" id="k-npt">–</div><div class="l">NPT hours (period)</div></div>
+    <div class="kpi"><div class="v" id="k-conn">–</div><div class="l">Fleet median connection (min)</div><div class="sub" id="k-conn-sub"></div></div>
+    <div class="kpi"><div class="v" id="k-mse">–</div><div class="l">Avg MSE (ksi)</div></div>
+  </div>
+
+  <div class="toolbar">
+    <label for="day">Day</label><input type="date" id="day">
+    <label for="rig">Rig</label><select id="rig"></select>
+    <span class="hint">Click a bar to drill into a rig. The agent answers fleet-wide unless you switch it to rig focus.</span>
+  </div>
+
+  <div class="grid">
+    <div class="card wide">
+      <h2><span class="pillar">Stability</span>Stuck-pipe risk by rig <small>peak risk per rig for the selected day · model STUCK_PIPE_MODEL V1</small></h2>
+      <div class="chart"><canvas id="c-rigs"></canvas></div>
+    </div>
+    <div class="card wide">
+      <h2><span class="pillar">Stability</span>Risk trend and drag <small id="trend-sub">per stand, with recorded NPT events</small></h2>
+      <div class="chart"><canvas id="c-trend"></canvas></div>
+    </div>
+    <div class="card wide">
+      <h2>Drilling channels <small id="tags-sub">10-minute averages while drilling</small></h2>
+      <div class="chart tall"><canvas id="c-tags"></canvas></div>
+    </div>
+    <div class="card wide">
+      <h2><span class="pillar">Flat time</span>Connection time vs fleet <small>median minutes per connection; dashed lines are fleet p50 / p90</small></h2>
+      <div class="chart"><canvas id="c-conn"></canvas></div>
+    </div>
+    <div class="card">
+      <h2><span class="pillar">Optimization</span>MSE vs ROP <small id="mse-sub">per stand, coloured by stuck-pipe risk</small></h2>
+      <div class="chart"><canvas id="c-mse"></canvas></div>
+    </div>
+    <div class="card">
+      <h2><span class="pillar">Rig state</span>Classifier vs given state <small id="state-sub">held-out day 2026-10-12</small></h2>
+      <div class="chart"><canvas id="c-state"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>NPT hours by basin <small>by event type</small></h2>
+      <div class="chart"><canvas id="c-npt"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Fleet risk mix <small>rigs on the selected day</small></h2>
+      <div class="chart"><canvas id="c-mix"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<aside aria-label="PTEN+ DSA agent">
+  <div class="agent-head">
+    <div class="mark">P+</div>
+    <div><div class="t">Ask PTEN+ DSA</div><div class="s">Scores · sensor tags · live scoring · drilling documents</div></div>
+  </div>
+  <div class="context"><span id="ctx">Context: all rigs</span>
+    <span class="scope" role="group" aria-label="Agent scope">
+      <button type="button" id="scope-fleet" aria-pressed="true">Fleet</button>
+      <button type="button" id="scope-rig" aria-pressed="false">Rig</button>
+    </span>
+  </div>
+  <div id="log">
+    <div class="msg bot">Ask about rig risk, sensor behavior or drilling practice. I can query the model scores, pull tag windows, re-score a rig, and cite the practice guides.</div>
+  </div>
+  <div class="composer">
+    <button type="button" class="samples-btn" id="samples-btn" aria-expanded="false" aria-controls="samples">Sample questions</button>
+    <div class="samples" id="samples" role="menu" hidden></div>
+    <form id="f">
+      <textarea id="q" rows="1" placeholder="Ask about rigs, risk, sensor tags or procedures" aria-label="Question"></textarea>
+      <button class="send" id="send" type="submit">Ask</button>
+    </form>
+  </div>
+</aside>
+</main>
+<footer>Synthetic data shaped like Patterson-UTI drilling telemetry · Hands-on lab build · Powered by Snowflake</footer>
+
+<script src="/static/chart.umd.js"></script>
+<script>
+const RED = '#e51b24', CHAR = '#282828', GREY = '#787676', AMBER = '#e8a33d', OK = '#2f9e6e';
+Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
+Chart.defaults.color = '#4a4d50';
+Chart.defaults.plugins.legend.labels.boxWidth = 12;
+const charts = {};
+const state = { day: null, rig: null, focus: false };
+
+const $ = id => document.getElementById(id);
+const api = path => fetch(path).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+const fmt = n => (n ?? 0).toLocaleString();
+
+function draw(id, config) {
+  if (charts[id]) charts[id].destroy();
+  config.options = Object.assign({ responsive: true, maintainAspectRatio: false, animation: { duration: 300 } }, config.options || {});
+  charts[id] = new Chart($(id), config);
+}
+
+async function loadSummary() {
+  const s = await api('/api/summary');
+  $('k-rigs').textContent = fmt(s.rigs);
+  $('k-atrisk').textContent = fmt(s.rigs_at_risk_last_day);
+  $('k-stands').textContent = fmt(s.high_risk_stands_last_day);
+  $('k-npt').textContent = fmt(s.npt_hours);
+  $('k-conn').textContent = fmt(s.fleet_median_connection_min);
+  $('k-conn-sub').textContent = `${fmt(s.flat_time_hours_above_median)} h above median, fleet-wide`;
+  $('k-mse').textContent = fmt(s.avg_mse_ksi);
+  $('range').textContent = `${s.first_day} → ${s.last_day}`;
+  $('day').min = s.first_day; $('day').max = s.last_day;
+  $('day').value = state.day = '2026-10-12' >= s.first_day && '2026-10-12' <= s.last_day ? '2026-10-12' : s.last_day;
+}
+
+async function loadRigs() {
+  const data = await api(`/api/risk_by_rig?day=${state.day}`);
+  const sel = $('rig');
+  if (!sel.options.length) {
+    [...data].map(d => d.rig_id).sort().forEach(r => sel.add(new Option(r, r)));
+  }
+  if (!state.rig) { state.rig = data[0]?.rig_id; sel.value = state.rig; }
+  draw('c-rigs', {
+    type: 'bar',
+    data: { labels: data.map(d => d.rig_id), datasets: [
+      { label: 'Peak risk', data: data.map(d => d.max_risk),
+        backgroundColor: data.map(d => d.rig_id === state.rig ? CHAR : d.max_risk >= 0.5 ? RED : d.max_risk >= 0.2 ? AMBER : '#c9c6c3') },
+      { label: 'Average risk', data: data.map(d => d.avg_risk), type: 'line', borderColor: GREY, pointRadius: 2, borderWidth: 1.5 }]},
+    options: {
+      scales: { y: { min: 0, max: 1, title: { display: true, text: 'Probability of stuck pipe in next 3 h' } } },
+      plugins: { tooltip: { callbacks: { afterLabel: c => `${data[c.dataIndex].basin} · ${data[c.dataIndex].high_risk_stands} high-risk stands` } } },
+      onClick: (e, el) => { if (el.length) selectRig(data[el[0].index].rig_id); }
+    }
+  });
+  const hi = data.reduce((a, d) => a + d.high_risk_stands, 0);
+  const total = data.length;
+  const atRisk = data.filter(d => d.max_risk >= 0.5).length, watch = data.filter(d => d.max_risk >= 0.2 && d.max_risk < 0.5).length;
+  draw('c-mix', {
+    type: 'doughnut',
+    data: { labels: ['At risk (≥ 0.5)', 'Watch (0.2 – 0.5)', 'Normal'],
+      datasets: [{ data: [atRisk, watch, total - atRisk - watch], backgroundColor: [RED, AMBER, '#d6d3d0'], borderWidth: 0 }] },
+    options: { cutout: '62%', plugins: { legend: { position: 'right' }, title: { display: true, text: `${hi} high-risk stands across ${total} rigs` } } }
+  });
+}
+
+async function loadTrend() {
+  const [{ scores, events }, drag] = await Promise.all([api(`/api/risk_trend?rig=${state.rig}`), api(`/api/overpull?rig=${state.rig}`)]);
+  const evStands = events.filter(e => e.event_type === 'STUCK_PIPE').map(e => {
+    const t = new Date(e.event_start_ts); let best = null;
+    for (const s of scores) { if (new Date(s.stand_end_ts) <= t) best = s; }
+    return best && { x: best.stand_no, y: 1, label: `${e.event_type} ${e.event_start_ts.replace('T', ' ').slice(0, 16)} (${e.duration_min} min)` };
+  }).filter(Boolean);
+  $('trend-sub').textContent = `${state.rig} · risk per stand (left), drag per connection (right), red markers are recorded stuck-pipe events`;
+  draw('c-trend', {
+    type: 'line',
+    data: { datasets: [
+      { label: 'Risk', data: scores.map(s => ({ x: s.stand_no, y: s.risk })), borderColor: CHAR, backgroundColor: 'rgba(40,40,40,.08)', fill: true, pointRadius: 0, borderWidth: 1.5, tension: .2 },
+      { label: 'Stuck pipe event', data: evStands, type: 'scatter', backgroundColor: RED, pointRadius: 7, pointStyle: 'triangle' },
+      { label: 'Alert threshold', data: scores.length ? [{ x: scores[0].stand_no, y: .5 }, { x: scores.at(-1).stand_no, y: .5 }] : [], borderColor: RED, borderDash: [6, 4], pointRadius: 0, borderWidth: 1 },
+      { label: 'Drag, 5-connection avg (klb)', data: drag.map(d => ({ x: d.stand_no, y: d.drag_5conn_avg_klb })), borderColor: AMBER, pointRadius: 0, borderWidth: 1.5, yAxisID: 'y1' }]},
+    options: { parsing: false, scales: { x: { type: 'linear', title: { display: true, text: 'Stand number' } }, y: { min: 0, max: 1.05, title: { display: true, text: 'Risk' } },
+      y1: { position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Drag (klb)' } } },
+      plugins: { tooltip: { callbacks: { label: c => c.raw.label || `${c.dataset.label}: ${(+c.raw.y).toFixed(3)}` } } } }
+  });
+}
+
+async function loadTags() {
+  const data = await api(`/api/tags?rig=${state.rig}&day=${state.day}`);
+  const tags = { TORQUE_KFTLB: ['Torque (kft·lb)', RED, 'y'], HOOKLOAD_KLB: ['Hookload (klb)', CHAR, 'y1'],
+                 ROP_FPH: ['ROP (ft/h)', OK, 'y'], SPP_PSI: ['SPP (psi)', '#4a7fb5', 'y2'] };
+  const buckets = [...new Set(data.map(d => d.bucket))];
+  const ds = Object.entries(tags).map(([tag, [label, color, axis]]) => {
+    const m = new Map(data.filter(d => d.tag === tag).map(d => [d.bucket, d.v]));
+    return { label, data: buckets.map(b => m.get(b) ?? null), borderColor: color, yAxisID: axis, pointRadius: 0, borderWidth: 1.5, spanGaps: true };
+  });
+  $('tags-sub').textContent = `${state.rig} · ${state.day} · 10-minute averages while drilling`;
+  draw('c-tags', {
+    type: 'line', data: { labels: buckets.map(b => b.slice(11, 16)), datasets: ds },
+    options: { interaction: { mode: 'index', intersect: false },
+      scales: { y: { position: 'left', title: { display: true, text: 'Torque · ROP' } },
+                y1: { position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Hookload' } },
+                y2: { display: false } } }
+  });
+}
+
+async function loadNpt() {
+  const data = await api('/api/npt');
+  const basins = [...new Set(data.map(d => d.basin))], types = [...new Set(data.map(d => d.event_type))];
+  const colors = { STUCK_PIPE: RED, LOST_CIRCULATION: AMBER, EQUIPMENT_FAILURE: GREY };
+  draw('c-npt', {
+    type: 'bar',
+    data: { labels: basins, datasets: types.map(t => ({ label: t.replace('_', ' ').toLowerCase(), backgroundColor: colors[t] || CHAR,
+      data: basins.map(b => (data.find(d => d.basin === b && d.event_type === t) || {}).hours || 0) })) },
+    options: { indexAxis: 'y', scales: { x: { stacked: true, title: { display: true, text: 'Hours' } }, y: { stacked: true } } }
+  });
+}
+
+async function loadConnections() {
+  const data = await api('/api/connections');
+  const p50 = data[0]?.fleet_p50_min, p90 = data[0]?.fleet_p90_min;
+  draw('c-conn', {
+    type: 'bar',
+    data: { labels: data.map(d => d.rig_id), datasets: [
+      { label: 'Rig median (min)', data: data.map(d => d.rig_median_min),
+        backgroundColor: data.map(d => d.rig_id === state.rig ? CHAR : d.rig_median_min >= p90 ? RED : d.rig_median_min > p50 ? AMBER : '#c9c6c3') },
+      { label: `Fleet p50 (${p50})`, type: 'line', data: data.map(() => p50), borderColor: GREY, borderDash: [6, 4], pointRadius: 0, borderWidth: 1 },
+      { label: `Fleet p90 (${p90})`, type: 'line', data: data.map(() => p90), borderColor: RED, borderDash: [6, 4], pointRadius: 0, borderWidth: 1 }]},
+    options: { scales: { y: { min: 0, title: { display: true, text: 'Minutes per connection' } } },
+      plugins: { tooltip: { callbacks: { afterLabel: c => c.datasetIndex === 0 ? `${data[c.dataIndex].hours_above_fleet_median} h above fleet median · ${data[c.dataIndex].connections} connections` : '' } } },
+      onClick: (e, el) => { if (el.length) selectRig(data[el[0].index].rig_id); } }
+  });
+}
+
+async function loadMse() {
+  const data = await api(`/api/mse?rig=${state.rig}`);
+  $('mse-sub').textContent = `${state.rig} · per stand, red = stuck-pipe risk ≥ 0.5`;
+  const pt = d => ({ x: d.avg_rop_fph, y: d.mse_ksi, stand: d.stand_no, risk: d.risk });
+  draw('c-mse', {
+    type: 'scatter',
+    data: { datasets: [
+      { label: 'Normal', data: data.filter(d => (d.risk ?? 0) < 0.5).map(pt), backgroundColor: 'rgba(40,40,40,.35)', pointRadius: 3 },
+      { label: 'High risk', data: data.filter(d => (d.risk ?? 0) >= 0.5).map(pt), backgroundColor: RED, pointRadius: 5 }]},
+    options: { scales: { x: { title: { display: true, text: 'ROP (ft/h)' } }, y: { title: { display: true, text: 'MSE (ksi)' } } },
+      plugins: { tooltip: { callbacks: { label: c => `Stand ${c.raw.stand}: ROP ${c.raw.x}, MSE ${c.raw.y} ksi, risk ${c.raw.risk ?? '–'}` } } } }
+  });
+}
+
+async function loadState() {
+  const { minutes, accuracy } = await api(`/api/rig_state?rig=${state.rig}`);
+  const states = ['DRILLING', 'CONNECTION', 'CIRCULATING', 'TRIPPING'];
+  const hour = ts => +ts.slice(11, 13) + +ts.slice(14, 16) / 60;
+  const wrong = minutes.filter(m => m.given_state !== m.predicted_state);
+  $('state-sub').textContent = `${state.rig} · held-out day 2026-10-12 · fleet accuracy ${(accuracy.acc * 100).toFixed(1)}%`;
+  draw('c-state', {
+    type: 'scatter',
+    data: { datasets: [
+      { label: 'Given state', data: minutes.map(m => ({ x: hour(m.ts), y: states.indexOf(m.given_state) + 0.15 })), backgroundColor: CHAR, pointRadius: 1.5 },
+      { label: 'Predicted state', data: minutes.map(m => ({ x: hour(m.ts), y: states.indexOf(m.predicted_state) - 0.15 })), backgroundColor: OK, pointRadius: 1.5 },
+      { label: `Mismatch (${wrong.length} min)`, data: wrong.map(m => ({ x: hour(m.ts), y: states.indexOf(m.predicted_state) - 0.15 })), backgroundColor: RED, pointRadius: 4 }]},
+    options: { scales: { x: { min: 0, max: 24, title: { display: true, text: 'Hour of day' } },
+      y: { min: -0.6, max: 3.6, ticks: { stepSize: 1, callback: v => states[v] ?? '' } } },
+      plugins: { tooltip: { enabled: false } } }
+  });
+}
+
+function setChips() {
+  const r = state.rig, d = state.day;
+  const fleet = [
+    `Which 5 rigs had the highest stuck-pipe risk on ${d}?`,
+    'Which rigs show rising drag ahead of their stuck-pipe risk spikes?',
+    'Which rigs have the slowest median connection time versus the fleet, and how many hours is that?',
+    'Which basin drills most efficiently by average MSE and ROP?',
+    'Which basin lost the most hours to NPT?',
+    'Compare high-risk stand counts by basin over the period',
+    'What does our practice guide recommend when several rigs trend toward stuck pipe at once?'
+  ];
+  const rig = [
+    `Show torque and hookload for ${r} while drilling on ${d} between 06:00 and 12:00`,
+    `Re-score the last 5 stands on ${r}`,
+    `Is ${r} showing rising drag before its stuck-pipe risk spikes?`,
+    `How does ${r} compare to the fleet on connection time and MSE?`,
+    `${r} is trending up. What does our practice guide say to check?`
+  ];
+  const qs = state.focus ? rig : fleet;
+  const head = Object.assign(document.createElement('h3'), { textContent: state.focus ? `Try asking · ${r} focus` : 'Try asking · all rigs' });
+  $('samples').replaceChildren(head, ...qs.map(q => {
+    const b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'menuitem'); b.textContent = q;
+    b.addEventListener('click', () => { $('q').value = q; grow(); toggleSamples(false); $('q').focus(); });
+    return b;
+  }));
+  $('ctx').innerHTML = '';
+  if (state.focus) $('ctx').append('Context: ', Object.assign(document.createElement('b'), { textContent: r }), ' only');
+  else $('ctx').append('Context: ', Object.assign(document.createElement('b'), { textContent: 'all rigs' }), ' · fleet-wide');
+  $('scope-fleet').setAttribute('aria-pressed', String(!state.focus));
+  $('scope-rig').setAttribute('aria-pressed', String(state.focus));
+  $('scope-rig').textContent = r ? `Rig: ${r}` : 'Rig';
+}
+$('scope-fleet').addEventListener('click', () => { state.focus = false; setChips(); });
+$('scope-rig').addEventListener('click', () => { state.focus = true; setChips(); });
+
+function grow() { const t = $('q'); t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight, 140) + 'px'; }
+function toggleSamples(open) {
+  const p = $('samples'), b = $('samples-btn');
+  open = open ?? p.hidden;
+  p.hidden = !open; b.setAttribute('aria-expanded', String(open));
+  if (open) p.querySelector('button')?.focus();
+}
+$('samples-btn').addEventListener('click', () => toggleSamples());
+document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleSamples(false); });
+document.addEventListener('click', e => { if (!e.target.closest('.composer')) toggleSamples(false); });
+$('q').addEventListener('input', grow);
+
+async function selectRig(rig) {
+  state.rig = rig; $('rig').value = rig;
+  setChips();
+  await Promise.all([loadRigs(), loadTrend(), loadTags(), loadConnections(), loadMse(), loadState()]);
+}
+
+/* Minimal, safe markdown: escape first, then bold, inline code, lists, tables, paragraphs. */
+function esc(s) { return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]); }
+function inline(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>'); }
+function md(text) {
+  const lines = text.split('\n'); let html = '', i = 0;
+  while (i < lines.length) {
+    const l = lines[i];
+    if (/^\s*\|.*\|\s*$/.test(l) && i + 1 < lines.length && /^\s*\|[\s:|-]+\|\s*$/.test(lines[i + 1])) {
+      const cells = r => r.trim().replace(/^\||\|$/g, '').split('|').map(c => inline(c.trim()));
+      html += '<table><tr>' + cells(l).map(c => `<th>${c}</th>`).join('') + '</tr>'; i += 2;
+      while (i < lines.length && /^\s*\|/.test(lines[i])) { html += '<tr>' + cells(lines[i]).map(c => `<td>${c}</td>`).join('') + '</tr>'; i++; }
+      html += '</table>'; continue;
+    }
+    if (/^\s*[-*] /.test(l)) { html += '<ul>'; while (i < lines.length && /^\s*[-*] /.test(lines[i])) { html += `<li>${inline(lines[i].replace(/^\s*[-*] /, ''))}</li>`; i++; } html += '</ul>'; continue; }
+    if (/^#{1,4} /.test(l)) { html += `<p><b>${inline(l.replace(/^#+ /, ''))}</b></p>`; i++; continue; }
+    if (l.trim()) html += `<p>${inline(l)}</p>`;
+    i++;
+  }
+  return html;
+}
+
+function addMsg(cls, html) { const d = document.createElement('div'); d.className = 'msg ' + cls; d.innerHTML = html; $('log').append(d); $('log').scrollTop = 1e9; return d; }
+
+/* Thumbs up / down -> /feedback -> Cortex Agent Feedback API (visible in the agent's Monitoring tab). */
+function feedbackBar(requestId, scopeTag) {
+  const bar = document.createElement('div'); bar.className = 'fb';
+  const label = Object.assign(document.createElement('span'), { textContent: 'Was this helpful?' });
+  const up = Object.assign(document.createElement('button'), { type: 'button', textContent: '\u{1F44D}', title: 'Helpful' });
+  const down = Object.assign(document.createElement('button'), { type: 'button', textContent: '\u{1F44E}', title: 'Not helpful' });
+  const send = async (positive, message) => {
+    up.disabled = down.disabled = true;
+    (positive ? up : down).classList.add('on');
+    try {
+      const r = await fetch('/feedback', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ request_id: requestId, positive, message: message || '', categories: [positive ? 'helpful' : 'not_helpful', scopeTag] }) });
+      label.textContent = r.ok ? 'Thanks, feedback recorded.' : 'Feedback failed.';
+    } catch { label.textContent = 'Feedback failed.'; }
+  };
+  up.addEventListener('click', () => { bar.querySelector('input')?.remove(); send(true); });
+  down.addEventListener('click', () => {
+    if (bar.querySelector('input')) return;
+    const box = Object.assign(document.createElement('input'), { placeholder: 'What was wrong? (optional, Enter to send)', maxLength: 500 });
+    box.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); box.disabled = true; send(false, box.value.trim()); } });
+    bar.append(box); box.focus();
+  });
+  bar.append(label, up, down);
+  return bar;
+}
+
+$('f').addEventListener('submit', async e => {
+  e.preventDefault();
+  const q = $('q').value.trim(); if (!q) return;
+  addMsg('user', esc(q)); $('q').value = ''; grow(); toggleSamples(false);
+  const pending = addMsg('bot typing', 'Planning and calling tools…');
+  $('send').disabled = true;
+  try {
+    const scopeTag = state.focus && state.rig ? `rig:${state.rig}` : "scope:fleet";   // scope at ask time, not the dashboard selection
+    const r = await fetch('/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q, rig: state.focus ? state.rig : null }) });
+    const j = await r.json();
+    pending.className = 'msg bot';
+    pending.innerHTML = md(j.answer || (typeof j.detail === 'string' ? j.detail : JSON.stringify(j.detail || '')) || 'No answer returned.') +
+      (j.tools?.length ? '<div class="tools">' + j.tools.map(t => `<span>${esc(t)}</span>`).join('') + '</div>' : '');
+    if (j.request_id) pending.append(feedbackBar(j.request_id, scopeTag));
+  } catch (err) {
+    pending.className = 'msg bot'; pending.textContent = 'Request failed: ' + err.message;
+  } finally { $('send').disabled = false; $('log').scrollTop = 1e9; }
+});
+$('q').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); $('f').requestSubmit(); } });
+$('rig').addEventListener('change', e => selectRig(e.target.value));
+$('day').addEventListener('change', async e => { state.day = e.target.value; setChips(); await Promise.all([loadRigs(), loadTags()]); });
+
+(async () => {
+  await loadSummary();
+  await loadRigs();
+  setChips();
+  await Promise.all([loadTrend(), loadTags(), loadNpt(), loadConnections(), loadMse(), loadState()]);
+})().catch(err => addMsg('bot', 'Dashboard failed to load: ' + esc(err.message)));
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/* Snowflake light theme for reveal.js: sets reveal's --r-* variables + brand tokens. */
+@import url(snowflake-base.css);
+:root {
+  --r-background-color: #FFFFFF;
+  --r-main-color: #24323D;
+  --r-heading-color: #11567F;
+  --r-link-color-hover: #11567F;
+  --sf-surface: #F2F8FB; --sf-rule: #D6E6EE; --sf-muted: #5E6E74;
+}

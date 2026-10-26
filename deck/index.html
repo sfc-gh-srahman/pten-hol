@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<!-- html-snow-deck: standard reveal.js basic setup (index.html + dist/) with the Snowflake theme.
+     Run from a local web server so speaker view works (reveal.js docs). -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="snowflake-source" content="cortex-agent-authored" />
+  <title>PTEN Hands-on Lab: Drilling ML to a DSA Agent </title>
+  <script type="application/json" id="snowflake-report-metadata">
+{
+  "generated": "2026-10-26",
+  "intent": "Attendee deck for the Patterson-UTI (PTEN) hands-on lab: Lab A drilling ML to a DSA agent, Lab B RAG",
+  "kind": "html-snow-deck",
+  "audience": "PTEN drilling data science team",
+  "dataSources": [
+    {
+      "type": "file",
+      "path": "README.md"
+    },
+    {
+      "type": "file",
+      "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+    },
+    {
+      "type": "file",
+      "path": "lab-b-rag/PTEN_HOL_B_RAG.ipynb"
+    }
+  ],
+  "sections": [
+    {
+      "id": "s-title",
+      "title": "Title"
+    },
+    {
+      "id": "s-agenda",
+      "title": "Agenda",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        },
+        {
+          "type": "file",
+          "path": "lab-b-rag/PTEN_HOL_B_RAG.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-why",
+      "title": "Why: DSA questions across pillars",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-arch",
+      "title": "Architecture",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "reference/2026-10-26-rag-architecture-mapping.html"
+        }
+      ]
+    },
+    {
+      "id": "s-env",
+      "title": "How the lab runs",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "README.md",
+          "note": "How the lab runs"
+        }
+      ]
+    },
+    {
+      "id": "s-laba",
+      "title": "Section break Lab A"
+    },
+    {
+      "id": "s-ml-platform",
+      "title": "Snowflake ML mapped to stuck pipe",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-ml-flow",
+      "title": "ML lifecycle flow",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-a1",
+      "title": "A0/A1 data and features",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "README.md"
+        },
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-a2",
+      "title": "A2 model and experiments",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-a3",
+      "title": "A3/A3b registry and insights",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        },
+        {
+          "type": "file",
+          "path": "setup/02_insights.sql"
+        }
+      ]
+    },
+    {
+      "id": "s-a3b",
+      "title": "SPCS model service",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-cortex-arch",
+      "title": "Cortex AI architecture",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/dsa_agent.sql"
+        },
+        {
+          "type": "file",
+          "path": "lab-b-rag/rag_foundation.sql"
+        }
+      ]
+    },
+    {
+      "id": "s-a4",
+      "title": "A4 DSA agent",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/dsa_agent.sql"
+        }
+      ]
+    },
+    {
+      "id": "s-a5",
+      "title": "A5 app and feedback",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/app/main.py"
+        }
+      ]
+    },
+    {
+      "id": "s-labb",
+      "title": "Section break Lab B"
+    },
+    {
+      "id": "s-b1",
+      "title": "B1/B2 shared retrieval foundation",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-b-rag/rag_foundation.sql"
+        }
+      ]
+    },
+    {
+      "id": "s-b3",
+      "title": "B3 Level 1 LangChain + TruLens",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-b-rag/PTEN_HOL_B_RAG.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-b4",
+      "title": "B4 Level 2 Cortex Search as agent tool",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-b-rag/add_search_to_agent.sql"
+        }
+      ]
+    },
+    {
+      "id": "s-deploy-insights",
+      "title": "One agent, three tools",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-b-rag/add_search_to_agent.sql"
+        }
+      ]
+    },
+    {
+      "id": "s-horizon",
+      "title": "Horizon Catalog",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "README.md",
+          "note": "Objects the lab creates"
+        }
+      ]
+    },
+    {
+      "id": "s-trail",
+      "title": "Snowflake Trail",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "README.md"
+        },
+        {
+          "type": "file",
+          "path": "lab-b-rag/PTEN_HOL_B_RAG.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-versus",
+      "title": "Vendor agnostic vs Snowflake native",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        },
+        {
+          "type": "file",
+          "path": "lab-b-rag/PTEN_HOL_B_RAG.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-twoways",
+      "title": "Run it two ways",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-followups",
+      "title": "Follow-ups out of scope",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "s-checklist",
+      "title": "Take it home",
+      "dataSources": [
+        {
+          "type": "file",
+          "path": "README.md"
+        },
+        {
+          "type": "file",
+          "path": "setup/99_teardown.sql"
+        }
+      ]
+    },
+    {
+      "id": "s-close",
+      "title": "Closing"
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <link rel="stylesheet" id="theme" href="theme/snowflake-light.css" />
+  <link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
+  <style>
+    /* Deck-local layout. Font sizes use --fs-* tokens only. */
+    .tight li { margin: .2em 0; }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .node { background: var(--sf-surface); border: 1px solid var(--sf-rule); border-left: 5px solid var(--sf-blue); border-radius: 10px; padding: 14px 16px; font-size: var(--fs-small); line-height: 1.35; }
+    .node b { display: block; font-size: var(--fs-body); color: var(--r-heading-color); margin-bottom: 4px; }
+    .node.orange { border-left-color: var(--sf-orange); } .node.purple { border-left-color: var(--sf-purple); } .node.rose { border-left-color: var(--sf-rose); }
+    .card p { font-size: var(--fs-small); margin: .4em 0 0; }
+    .card b { color: var(--r-heading-color); }
+    .strip { margin-top: 22px; font-size: var(--fs-small); color: var(--sf-muted); }
+    .statrow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 26px; }
+    .reveal table td { font-size: var(--fs-small); }
+    .reveal table td:first-child { font-weight: 700; color: var(--r-heading-color); }
+    .prompt { background: var(--sf-surface); border-left: 5px solid var(--sf-purple); border-radius: 8px; padding: 14px 18px; font-size: var(--fs-small); line-height: 1.4; }
+    .arch svg { width: 100%; height: auto; display: block; }
+    .arch text { font-family: var(--r-main-font); fill: currentColor; }
+    .arch .box { fill: var(--sf-surface); stroke: var(--sf-blue); stroke-width: 2; }
+    .arch .box.o { stroke: var(--sf-orange); } .arch .box.p { stroke: var(--sf-purple); }
+    .arch .ln { stroke: var(--sf-windy); stroke-width: 2; fill: none; }
+    .arch .t { font-size: var(--fs-small); font-weight: 700; }
+    .arch .s { font-size: var(--fs-label); fill: var(--sf-muted); }
+    .arch .box.n { stroke: var(--sf-windy); stroke-dasharray: 7 5; fill: none; }
+    .arch .t.n, .arch .c.n { fill: var(--sf-muted); }
+    .arch .frame { fill: none; stroke: var(--sf-rule); stroke-width: 2; }
+    .arch .z { font-size: var(--fs-label); font-weight: 900; letter-spacing: .12em; fill: var(--sf-blue); }
+    .arch .c { font-size: var(--fs-label); font-weight: 700; }
+
+    /* Left navigation panel: fixed overlay outside .reveal so reveal scaling is untouched. */
+    #nav-toggle { position: fixed; top: 14px; right: 14px; z-index: 60; background: var(--sf-mid-blue); color: #fff; border: 1px solid rgba(255,255,255,.6); border-radius: 80px; padding: 7px 16px; font: 700 var(--fs-label) var(--r-main-font); letter-spacing: .08em; cursor: pointer; }
+    #nav-panel { position: fixed; top: 0; left: 0; bottom: 0; width: 290px; z-index: 55; background: var(--r-background-color); border-right: 1px solid var(--sf-rule); box-shadow: 4px 0 18px rgba(0,0,0,.08); padding: 60px 0 20px; overflow-y: auto; transform: translateX(-100%); transition: transform .2s ease; font-family: var(--r-main-font); }
+    body.nav-open #nav-panel { transform: translateX(0); }
+    #nav-panel .ch { font-size: var(--fs-label); font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--sf-blue); padding: 14px 20px 4px; }
+    #nav-panel a { display: block; padding: 6px 20px 6px 24px; font-size: var(--fs-label); color: var(--r-main-color); text-decoration: none; border-left: 4px solid transparent; cursor: pointer; }
+    #nav-panel a:hover { background: var(--sf-surface); }
+    #nav-panel a.current { border-left-color: var(--sf-blue); background: var(--sf-surface); color: var(--r-heading-color); font-weight: 700; }
+    @media print { #nav-toggle, #nav-panel { display: none; } }
+  </style>
+</head>
+<body>
+  <button id="nav-toggle" type="button" aria-controls="nav-panel" aria-expanded="false" title="Toggle slide index (N)">&#9776; SLIDES</button>
+  <nav id="nav-panel" aria-label="Slide index"></nav>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="s-title" class="title" data-chapter="Intro" data-nav="Title" data-background-gradient="linear-gradient(135deg, #003545 0%, #11567F 60%, #29B5E8 140%)">
+        <div class="eyebrow">Patterson-UTI hands-on lab &middot; Houston &middot; Oct 28, 2026</div>
+        <h1>From drilling data to a DSA agent, without moving the data</h1>
+        <p class="subtitle">Lab A: stuck-pipe ML to a Cortex Agent in a container. Lab B: RAG on the same agent.</p>
+        <aside class="notes">Welcome. Today is hands-on: two notebooks on synthetic data shaped like PTEN's tall, skinny 1-minute tag table. By the end you will have a stuck-pipe model, a DSA agent that answers drilling questions, and an app serving it. Everything stays in Snowflake. This deck is the map; the notebooks are the source of truth.</aside>
+      </section>
+
+      <section id="s-agenda" data-chapter="Intro" data-nav="Agenda and timing">
+        <div class="eyebrow">Agenda</div>
+        <h2>Two labs: 60 minutes of ML to agent, then RAG</h2>
+        <div class="cols">
+          <table>
+            <tr><th>Lab A block</th><th>Min</th></tr>
+            <tr><td>A0 Frame, first look at data</td><td>3</td></tr>
+            <tr><td>A1 Features &middot; A2 Train + track</td><td>22</td></tr>
+            <tr><td>A3 Registry &middot; A3b Insights + SPCS</td><td>13</td></tr>
+            <tr><td>A4 DSA agent</td><td>15</td></tr>
+            <tr><td>A5 App + feedback &middot; A6 Wrap</td><td>10</td></tr>
+          </table>
+          <table>
+            <tr><th>Lab B block</th><th>Min</th></tr>
+            <tr><td>B1 RAG in one paragraph</td><td>5 to 10</td></tr>
+            <tr><td>B2 Parse, chunk, Cortex Search</td><td>10</td></tr>
+            <tr><td>B3 Level 1: LangChain + TruLens</td><td>10 to 15</td></tr>
+            <tr><td>B4 Level 2: Search as agent tool</td><td>5 to 10</td></tr>
+            <tr><td>B5 Your own documents</td><td>0 to 15</td></tr>
+          </table>
+        </div>
+        <aside class="notes">Lab A is 60 minutes and the core of the day. Lab B flexes from 30 to 60 depending on how much time is left; B5 is the first thing to cut. Each block maps to a Snowsight surface, so point at the UI every time an object is created: Features, Experiments, Models, Agents, Services.</aside>
+      </section>
+
+      <section id="s-why" data-chapter="Intro" data-nav="Why this lab">
+        <div class="eyebrow">Why</div>
+        <h2>One question drives the day: which rigs are trending toward stuck pipe?</h2>
+        <div class="cols-3">
+          <div class="card"><b>Today: stuck pipe</b><p>Which rigs are trending, what the sensors show, what the crew should check.</p></div>
+          <div class="card orange"><b>Today: three more pillars</b><p>Drilling optimization (MSE), flat time (connections), wellbore stability (drag), plus rig state.</p></div>
+          <div class="card purple"><b>Follow-ups</b><p>Kick detection, stick-slip, geomechanics, geosteering, equipment RUL.</p></div>
+        </div>
+        <p class="strip">Lab A answers the first two parts of the question. Lab B adds the third, from documents.</p>
+        <aside class="notes">Frame this as the DSA team's real question set. Stuck pipe is the anchor, but the same pipeline covers MSE, connection flat time and drag cheaply, so the team stops being a one-model shop. State the scope boundary up front: the follow-ups need new data, higher-frequency signals or edge inference, so we list them at the end rather than fake them.</aside>
+      </section>
+
+      <section id="s-arch" data-chapter="Intro" data-nav="Architecture">
+        <div class="eyebrow">Architecture</div>
+        <h2>Every layer runs next to the tag data</h2>
+        <div class="arch">
+          <svg viewBox="-3 -3 1206 366" role="img" aria-label="Architecture: tags to Feature Store to registry to SPCS model service, semantic view and tools, Cortex Agent, SPCS app; docs to Cortex Search to agent">
+            <defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8A999E"/></marker></defs>
+            <rect class="box" x="10" y="40" width="170" height="80" rx="10"/><text class="t" x="95" y="75" text-anchor="middle">Tag values</text><text class="s" x="95" y="100" text-anchor="middle">1-min tall/skinny</text>
+            <rect class="box" x="215" y="40" width="170" height="80" rx="10"/><text class="t" x="300" y="75" text-anchor="middle">Feature Store</text><text class="s" x="300" y="100" text-anchor="middle">per-stand features</text>
+            <rect class="box" x="420" y="40" width="170" height="80" rx="10"/><text class="t" x="505" y="75" text-anchor="middle">Model Registry</text><text class="s" x="505" y="100" text-anchor="middle">stuck pipe, rig state</text>
+            <rect class="box" x="625" y="40" width="170" height="80" rx="10"/><text class="t" x="710" y="75" text-anchor="middle">SPCS model svc</text><text class="s" x="710" y="100" text-anchor="middle">live scoring</text>
+            <rect class="box" x="625" y="170" width="170" height="80" rx="10"/><text class="t" x="710" y="205" text-anchor="middle">Semantic view</text><text class="s" x="710" y="230" text-anchor="middle">+ tag + score tools</text>
+            <rect class="box o" x="840" y="170" width="160" height="80" rx="10"/><text class="t" x="920" y="205" text-anchor="middle">Cortex Agent</text><text class="s" x="920" y="230" text-anchor="middle">DSA_AGENT</text>
+            <rect class="box o" x="1030" y="170" width="160" height="80" rx="10"/><text class="t" x="1110" y="205" text-anchor="middle">SPCS app</text><text class="s" x="1110" y="230" text-anchor="middle">PTEN+ DSA</text>
+            <rect class="box p" x="215" y="270" width="170" height="80" rx="10"/><text class="t" x="300" y="305" text-anchor="middle">Documents</text><text class="s" x="300" y="330" text-anchor="middle">PDFs on stage</text>
+            <rect class="box p" x="420" y="270" width="170" height="80" rx="10"/><text class="t" x="505" y="305" text-anchor="middle">Cortex Search</text><text class="s" x="505" y="330" text-anchor="middle">Lab B</text>
+            <path class="ln" marker-end="url(#arw)" d="M180,80 H213"/><path class="ln" marker-end="url(#arw)" d="M385,80 H418"/><path class="ln" marker-end="url(#arw)" d="M590,80 H623"/>
+            <path class="ln" marker-end="url(#arw)" d="M505,120 V210 H623"/><path class="ln" marker-end="url(#arw)" d="M710,120 V168"/>
+            <path class="ln" marker-end="url(#arw)" d="M795,210 H838"/><path class="ln" marker-end="url(#arw)" d="M1000,210 H1028"/>
+            <path class="ln" marker-end="url(#arw)" d="M385,310 H418"/><path class="ln" marker-end="url(#arw)" d="M590,310 H920 V252"/>
+            <text class="s" x="10" y="20">LAB A</text><text class="s" x="215" y="262">LAB B</text>
+          </svg>
+        </div>
+        <aside class="notes">Walk left to right. Tags land as the 1-minute tall, skinny table, the shape QuestDB already lands as Iceberg. Features per stand go into the Feature Store, models into the Registry, and the stuck-pipe model is also served from SPCS for live scoring. The semantic view plus two custom tools give the agent its vocabulary; the app on SPCS calls the agent. Lab B adds the purple branch: documents into Cortex Search, plugged into the same agent as one more tool.</aside>
+      </section>
+
+      <section id="s-env" data-chapter="Intro" data-nav="How the lab runs">
+        <div class="eyebrow">How the lab runs</div>
+        <h2>Two notebooks do the work; setup is one statement and one workspace</h2>
+        <div class="arch"><svg viewBox="-3 -3 1206 216" role="img" aria-label="Lab flow: Git integration, Git workspace, Lab A run all, optional app image, Lab B run all, teardown"><defs><marker id="arw-env" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8A999E"/></marker></defs><text class="z" x="0" y="20" text-anchor="start">IN SNOWSIGHT</text><text class="z" x="408" y="20" text-anchor="start">NOTEBOOKS DRIVE EVERYTHING</text><text class="z" x="1020" y="20" text-anchor="start">AT THE END</text><rect class="box" x="0" y="36" width="180" height="170" rx="10"/><text class="t" x="90" y="106" text-anchor="middle">1. Git integration</text><text class="s" x="90" y="130" text-anchor="middle">HOL_PTEN_GIT</text><text class="s" x="90" y="150" text-anchor="middle">one SQL statement</text><path class="ln" marker-end="url(#arw-env)" d="M180,121 H202"/><rect class="box" x="204" y="36" width="180" height="170" rx="10"/><text class="t" x="294" y="106" text-anchor="middle">2. Git workspace</text><text class="s" x="294" y="130" text-anchor="middle">from the public repo</text><text class="s" x="294" y="150" text-anchor="middle">Public repository auth</text><path class="ln" marker-end="url(#arw-env)" d="M384,121 H406"/><rect class="box" x="408" y="36" width="180" height="170" rx="10"/><text class="t" x="498" y="96" text-anchor="middle">3. Lab A: Run all</text><text class="s" x="498" y="120" text-anchor="middle">first cells run</text><text class="s" x="498" y="140" text-anchor="middle">00_setup, 01_generate</text><text class="s" x="498" y="160" text-anchor="middle">then the lab</text><path class="ln" marker-end="url(#arw-env)" d="M588,121 H610"/><rect class="box o" x="612" y="36" width="180" height="170" rx="10"/><text class="t" x="702" y="96" text-anchor="middle">4. A5 app image</text><text class="s" x="702" y="120" text-anchor="middle">Docker or Podman</text><text class="s" x="702" y="140" text-anchor="middle">on your laptop, or</text><text class="s" x="702" y="160" text-anchor="middle">watch the presenter</text><path class="ln" marker-end="url(#arw-env)" d="M792,121 H814"/><rect class="box p" x="816" y="36" width="180" height="170" rx="10"/><text class="t" x="906" y="96" text-anchor="middle">5. Lab B: Run all</text><text class="s" x="906" y="120" text-anchor="middle">turn on</text><text class="s" x="906" y="140" text-anchor="middle">HOL_PTEN_PYPI_EAI</text><text class="s" x="906" y="160" text-anchor="middle">in notebook settings</text><path class="ln" marker-end="url(#arw-env)" d="M996,121 H1018"/><rect class="box" x="1020" y="36" width="180" height="170" rx="10"/><text class="t" x="1110" y="96" text-anchor="middle">6. Teardown</text><text class="s" x="1110" y="120" text-anchor="middle">99_teardown.sql</text><text class="s" x="1110" y="140" text-anchor="middle">only script outside</text><text class="s" x="1110" y="160" text-anchor="middle">the notebooks</text></svg></div><p class="strip">Repository: <code>https://github.com/sfc-gh-srahman/pten-hol</code>. Step 4 is optional: nothing later depends on it.</p>
+        <aside class="notes">The notebooks drive everything. Step one is a single CREATE API INTEGRATION so Snowflake can read the public repository, and step two creates a Git workspace from it with Public repository authentication, so no credentials are needed. In Lab A, Run all is the easiest start: the first cells run setup/00_setup.sql and setup/01_generate_synthetic.sql, which create the role, the HOL_PTEN_WH adaptive warehouse, the compute pool and the synthetic data, then the lab continues into features, model and agent. A5 builds the app image, which needs Docker or Podman on your laptop. If you don't have either, follow along on the presenter's screen; nothing after it depends on it. For Lab B, turn on the HOL_PTEN_PYPI_EAI integration in the notebook settings so it can pip install LangChain and TruLens, then Run all. When you are done, setup/99_teardown.sql removes everything.</aside>
+      </section>
+
+      <section id="s-laba" class="section-break" data-chapter="Lab A" data-nav="Lab A" data-background-color="#11567F">
+        <div class="eyebrow">Lab A &middot; 60 min</div>
+        <h2>From drilling ML to a DSA agent in a container</h2>
+        <aside class="notes">Transition: we start with the data the team already has. The data is synthetic but shaped like theirs, with stuck-pipe precursors injected before labeled events so the model has real signal.</aside>
+      </section>
+
+      <section id="s-ml-platform" data-chapter="Lab A" data-nav="Snowflake ML for stuck pipe">
+        <div class="eyebrow">Snowflake ML &middot; Lab A map</div>
+        <h2>Snowflake ML, mapped to PTEN's stuck-pipe workflow</h2>
+        <div class="arch"><svg viewBox="-3 -3 1206 501" role="img" aria-label="Snowflake ML platform mapped to the PTEN lab: inputs, interfaces, five lifecycle stages, runtimes, outputs"><defs><marker id="arw-mlp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8A999E"/></marker></defs><rect class="frame" x="195" y="0" width="810" height="495" rx="14"/><text class="z" x="212" y="24" text-anchor="start">SNOWFLAKE ML</text><text class="z" x="0" y="24" text-anchor="start">INPUTS</text><text class="z" x="1020" y="24" text-anchor="start">OUTPUTS</text><rect class="box" x="0" y="45" width="180" height="110" rx="10"/><text class="t" x="90" y="75" text-anchor="middle">Batch data</text><text class="s" x="90" y="99" text-anchor="middle">1-min tag aggregates</text><text class="s" x="90" y="119" text-anchor="middle">QuestDB output,</text><text class="s" x="90" y="139" text-anchor="middle">Iceberg-ready</text><path class="ln" marker-end="url(#arw-mlp)" d="M180,100 H213"/><rect class="box" x="0" y="190" width="180" height="110" rx="10"/><text class="t" x="90" y="230" text-anchor="middle">Event data</text><text class="s" x="90" y="254" text-anchor="middle">NPT events</text><text class="s" x="90" y="274" text-anchor="middle">well header</text><path class="ln" marker-end="url(#arw-mlp)" d="M180,245 H213"/><rect class="box" x="0" y="335" width="180" height="110" rx="10"/><text class="t" x="90" y="365" text-anchor="middle">Any model</text><text class="s" x="90" y="389" text-anchor="middle">open source:</text><text class="s" x="90" y="409" text-anchor="middle">XGBoost,</text><text class="s" x="90" y="429" text-anchor="middle">scikit-learn</text><path class="ln" marker-end="url(#arw-mlp)" d="M180,390 H213"/><rect class="box p" x="215" y="38" width="245" height="82" rx="10"/><text class="t" x="338" y="64" text-anchor="middle">Cortex Code</text><text class="s" x="338" y="88" text-anchor="middle">skills: machine-learning,</text><text class="s" x="338" y="108" text-anchor="middle">sql-author, agent-studio</text><rect class="box p" x="477" y="38" width="245" height="82" rx="10"/><text class="t" x="600" y="64" text-anchor="middle">Snowflake Notebooks</text><text class="s" x="600" y="88" text-anchor="middle">Workspace notebooks</text><text class="s" x="600" y="108" text-anchor="middle">Lab A and Lab B</text><rect class="box p" x="739" y="38" width="245" height="82" rx="10"/><text class="t" x="862" y="64" text-anchor="middle">External IDEs</text><text class="s" x="862" y="88" text-anchor="middle">same code over a</text><text class="s" x="862" y="108" text-anchor="middle">Snowflake connection</text><rect class="box" x="215" y="140" width="142" height="222" rx="10"/><text class="t" x="286" y="195" text-anchor="middle">Develop &amp;</text><text class="t" x="286" y="217" text-anchor="middle">Iterate</text><text class="s" x="286" y="241" text-anchor="middle">Snowpark stand</text><text class="s" x="286" y="261" text-anchor="middle">pivots</text><text class="s" x="286" y="281" text-anchor="middle">XGBoost, time split</text><text class="s" x="286" y="301" text-anchor="middle">Experiment</text><text class="s" x="286" y="321" text-anchor="middle">Tracking</text><path class="ln" marker-end="url(#arw-mlp)" d="M357,250 H370"/><rect class="box n" x="372" y="140" width="142" height="222" rx="10"/><text class="t n" x="443" y="215" text-anchor="middle">Orchestrate</text><text class="t n" x="443" y="237" text-anchor="middle">&amp; Automate</text><text class="s" x="443" y="261" text-anchor="middle">ML Jobs</text><text class="s" x="443" y="281" text-anchor="middle">Next step:</text><text class="s" x="443" y="301" text-anchor="middle">scheduled retrain</text><path class="ln" marker-end="url(#arw-mlp)" d="M514,250 H527"/><rect class="box" x="529" y="140" width="142" height="222" rx="10"/><text class="t" x="600" y="206" text-anchor="middle">Manage</text><text class="s" x="600" y="230" text-anchor="middle">Feature Store:</text><text class="s" x="600" y="250" text-anchor="middle">RIG_STAND entity</text><text class="s" x="600" y="270" text-anchor="middle">Model Registry:</text><text class="s" x="600" y="290" text-anchor="middle">stuck-pipe and</text><text class="s" x="600" y="310" text-anchor="middle">rig-state models</text><path class="ln" marker-end="url(#arw-mlp)" d="M671,250 H684"/><rect class="box" x="686" y="140" width="142" height="222" rx="10"/><text class="t" x="757" y="205" text-anchor="middle">Deploy &amp;</text><text class="t" x="757" y="227" text-anchor="middle">Serve</text><text class="s" x="757" y="251" text-anchor="middle">Batch scores in</text><text class="s" x="757" y="271" text-anchor="middle">the warehouse</text><text class="s" x="757" y="291" text-anchor="middle">STUCK_PIPE_SVC</text><text class="s" x="757" y="311" text-anchor="middle">on SPCS, ~3 s</text><path class="ln" marker-end="url(#arw-mlp)" d="M828,250 H841"/><rect class="box n" x="843" y="140" width="142" height="222" rx="10"/><text class="t n" x="914" y="216" text-anchor="middle">Monitor</text><text class="s" x="914" y="240" text-anchor="middle">ML Observability,</text><text class="s" x="914" y="260" text-anchor="middle">Explainability</text><text class="s" x="914" y="280" text-anchor="middle">Next step: drift</text><text class="s" x="914" y="300" text-anchor="middle">and importance</text><rect class="box" x="215" y="380" width="375" height="100" rx="10"/><text class="t" x="402" y="425" text-anchor="middle">Container Runtime</text><text class="s" x="402" y="449" text-anchor="middle">XGBoost, scikit-learn, pip install, CPU</text><rect class="box" x="605" y="380" width="380" height="100" rx="10"/><text class="t" x="795" y="415" text-anchor="middle">Warehouse</text><text class="s" x="795" y="439" text-anchor="middle">HOL_PTEN_WH adaptive: SQL features,</text><text class="s" x="795" y="459" text-anchor="middle">batch scoring</text><rect class="box o" x="1020" y="45" width="180" height="110" rx="10"/><text class="t" x="1110" y="85" text-anchor="middle">PTEN+ DSA app</text><text class="s" x="1110" y="109" text-anchor="middle">dashboard</text><text class="s" x="1110" y="129" text-anchor="middle">+ agent chat</text><path class="ln" marker-end="url(#arw-mlp)" d="M987,100 H1018"/><rect class="box o" x="1020" y="190" width="180" height="110" rx="10"/><text class="t" x="1110" y="230" text-anchor="middle">ScoreRigNow</text><text class="s" x="1110" y="254" text-anchor="middle">DSA agent tool</text><text class="s" x="1110" y="274" text-anchor="middle">(API)</text><path class="ln" marker-end="url(#arw-mlp)" d="M987,245 H1018"/><rect class="box o" x="1020" y="335" width="180" height="110" rx="10"/><text class="t" x="1110" y="375" text-anchor="middle">Semantic view</text><text class="s" x="1110" y="399" text-anchor="middle">for Cortex</text><text class="s" x="1110" y="419" text-anchor="middle">Analyst</text><path class="ln" marker-end="url(#arw-mlp)" d="M987,390 H1018"/></svg></div><p class="strip">Solid boxes are built in the lab. Dashed boxes are next steps.</p>
+        <aside class="notes">This is the map for everything in Lab A. On the left are your inputs: the 1-minute tag aggregates, which is the shape your QuestDB pipeline already produces and can land as Iceberg, the NPT events and well header, and open-source models like XGBoost and scikit-learn. You can work from three interfaces: Cortex Code with its machine-learning, sql-author and agent-studio skills, the Workspace notebooks we use today, or your own IDE over a Snowflake connection. Across the middle is the lifecycle. Develop and iterate: Snowpark pivots the tall tag table per stand, XGBoost trains with a time-based split, and every run lands in Experiment Tracking under STUCK_PIPE_EXPERIMENT. Manage: the STAND_DRILLING_FEATURES feature view on the RIG_STAND entity, and the Model Registry holding STUCK_PIPE_MODEL and RIG_STATE_CLASSIFIER. Deploy and serve: batch scores into PREDICTIONS.STUCK_PIPE_SCORES from SQL, and STUCK_PIPE_SVC on Snowpark Container Services for roughly three-second live scoring. The dashed boxes, ML Jobs for scheduled retraining and ML Observability for drift and feature importance, are not built today; they are the natural next steps on the same objects. Training runs on Container Runtime, SQL runs on the HOL_PTEN_WH adaptive warehouse, and the outputs feed the app, the agent's ScoreRigNow tool and the semantic view.</aside>
+      </section>
+
+<section id="s-ml-flow" data-chapter="Lab A" data-nav="ML lifecycle flow">
+        <div class="eyebrow">ML lifecycle</div>
+        <h2>One governed path from tag data to a live risk score</h2>
+        <div class="arch"><svg viewBox="-3 -3 1206 381" role="img" aria-label="ML lifecycle: tag values, feature store, training, registry, batch scoring and SPCS service, ScoreRigNow tool, agent, app, feedback"><defs><marker id="arw-mlf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8A999E"/></marker></defs><rect class="box" x="0" y="20" width="260" height="80" rx="10"/><text class="t" x="130" y="55" text-anchor="middle">Tag values</text><text class="s" x="130" y="79" text-anchor="middle">RAW.TAG_VALUE</text><path class="ln" marker-end="url(#arw-mlf)" d="M260,60 H311"/><rect class="box" x="313" y="20" width="260" height="80" rx="10"/><text class="t" x="443" y="55" text-anchor="middle">Feature Store</text><text class="s" x="443" y="79" text-anchor="middle">STAND_DRILLING_FEATURES</text><path class="ln" marker-end="url(#arw-mlf)" d="M573,60 H624"/><rect class="box" x="626" y="20" width="260" height="80" rx="10"/><text class="t" x="756" y="55" text-anchor="middle">Train + track</text><text class="s" x="756" y="79" text-anchor="middle">STUCK_PIPE_EXPERIMENT</text><path class="ln" marker-end="url(#arw-mlf)" d="M886,60 H937"/><rect class="box" x="939" y="20" width="260" height="80" rx="10"/><text class="t" x="1069" y="55" text-anchor="middle">Model Registry</text><text class="s" x="1069" y="79" text-anchor="middle">STUCK_PIPE_MODEL V1</text><rect class="box" x="939" y="155" width="260" height="80" rx="10"/><text class="t" x="1069" y="190" text-anchor="middle">SPCS model service</text><text class="s" x="1069" y="214" text-anchor="middle">ML.STUCK_PIPE_SVC</text><rect class="box" x="626" y="155" width="260" height="80" rx="10"/><text class="t" x="756" y="190" text-anchor="middle">Batch score in SQL</text><text class="s" x="756" y="214" text-anchor="middle">PREDICTIONS.STUCK_PIPE_SCORES</text><rect class="box" x="939" y="290" width="260" height="80" rx="10"/><text class="t" x="1069" y="325" text-anchor="middle">ScoreRigNow tool</text><text class="s" x="1069" y="349" text-anchor="middle">live re-score, ~3 s</text><rect class="box o" x="626" y="290" width="260" height="80" rx="10"/><text class="t" x="756" y="325" text-anchor="middle">Cortex Agent</text><text class="s" x="756" y="349" text-anchor="middle">DSA_AGENT</text><rect class="box o" x="313" y="290" width="260" height="80" rx="10"/><text class="t" x="443" y="325" text-anchor="middle">PTEN+ DSA app</text><text class="s" x="443" y="349" text-anchor="middle">fleet dashboard + chat</text><rect class="box p" x="0" y="290" width="260" height="80" rx="10"/><text class="t" x="130" y="325" text-anchor="middle">Thumbs feedback</text><text class="s" x="130" y="349" text-anchor="middle">next to the agent trace</text><path class="ln" marker-end="url(#arw-mlf)" d="M1069,100 V153"/><path class="ln" marker-end="url(#arw-mlf)" d="M1069,100 V128 H756 V153"/><path class="ln" marker-end="url(#arw-mlf)" d="M1069,235 V288"/><path class="ln" marker-end="url(#arw-mlf)" d="M756,235 V288"/><path class="ln" marker-end="url(#arw-mlf)" d="M939,330 H888"/><path class="ln" marker-end="url(#arw-mlf)" d="M626,330 H575"/><path class="ln" marker-end="url(#arw-mlf)" d="M313,330 H262"/><text class="s" x="770" y="268">via semantic view</text></svg></div>
+        <aside class="notes">Here is the same story as a path you will walk in the next forty minutes. Raw tag values become stand-level features in the Feature Store. Training logs to STUCK_PIPE_EXPERIMENT and the winning model is registered as STUCK_PIPE_MODEL version V1. From the registry it goes two ways: batch scoring in SQL writes every stand into PREDICTIONS.STUCK_PIPE_SCORES, which the semantic view exposes to the agent, and the same model is deployed as STUCK_PIPE_SVC for interactive scoring through the ScoreRigNow tool. The app calls the agent, and every thumbs up or down lands next to the trace. Every arrow stays inside one account and one role, which is why there is no copy step to govern.</aside>
+      </section>
+
+      <section id="s-a1" data-chapter="Lab A" data-nav="A0/A1 Data and features">
+        <div class="eyebrow">A0 &middot; A1</div>
+        <h2>The tall, skinny tag table works in place, no reshaping job</h2>
+        <div class="statrow">
+          <div><div class="stat">16.3M</div><div class="stat-label">tag rows (16,255,676)</div></div>
+          <div><div class="stat">535,928</div><div class="stat-label">stand / state aggregates</div></div>
+          <div><div class="stat">60</div><div class="stat-label">NPT events</div></div>
+          <div><div class="stat">20</div><div class="stat-label">rigs, Oct 1 to 14, 2026</div></div>
+        </div>
+        <ul class="tight">
+          <li>Before stuck pipe: torque and hookload drift up while ROP drops</li>
+          <li>Features per stand go into the Feature Store, see AI &amp; ML &raquo; Features</li>
+        </ul>
+        <aside class="notes">Run A0 and show the plot: in the last two hours before the event, torque and hookload drift up while ROP drops. That is the pack-off signature the field already knows; the model's job is to spot it consistently across the fleet, not just on the rig a driller is watching. In A1, engineers think in stands, so features are built per stand and registered as feature views backed by dynamic tables. Versus point: Feast or pandas windows in each notebook drift; the Feature Store gives point-in-time correct training sets and lineage.</aside>
+      </section>
+
+      <section id="s-a2" data-chapter="Lab A" data-nav="A2 Model and experiments">
+        <div class="eyebrow">A2</div>
+        <h2>An XGBoost stuck-pipe model finds the signal: ROC-AUC 0.87</h2>
+        <div class="cols">
+          <div class="cols" style="gap:24px">
+            <div><div class="stat">0.87</div><div class="stat-label">ROC-AUC</div></div>
+            <div><div class="stat">0.73</div><div class="stat-label">PR-AUC</div></div>
+          </div>
+          <ul class="tight">
+            <li>Time-based split, not random</li>
+            <li>Runs and metrics in Snowflake Experiments</li>
+            <li>Data never leaves the account</li>
+            <li>MLflow models still import to the registry</li>
+          </ul>
+        </div>
+        <aside class="notes">Stress the time-based split: a random split leaks future stands into training and inflates the score. PR-AUC matters more than ROC-AUC here because stuck pipe is rare. Open AI and ML, Experiments, to show the run. If the team is standardized on MLflow, keep it; the registry imports MLflow models. If not, native tracking removes a server nobody wants to own.</aside>
+      </section>
+
+      <section id="s-a3" data-chapter="Lab A" data-nav="A3/A3b Registry and insights">
+        <div class="eyebrow">A3 &middot; A3b</div>
+        <h2>The same pipeline answers four more drilling questions</h2>
+        <table>
+          <tr><th>Pillar</th><th>Insight</th><th>Measured</th></tr>
+          <tr><td>Drilling optimization</td><td>MSE per stand vs ROP (Teale)</td><td>SQL in <code>02_insights.sql</code></td></tr>
+          <tr><td>Flat time</td><td>Connection time vs fleet</td><td>Median 14 min, p90 20</td></tr>
+          <tr><td>Wellbore stability</td><td>Drag: pick-up minus slack-off</td><td>Average about 41 klb</td></tr>
+          <tr><td>Rig state</td><td>Per-minute state classifier</td><td>93.6% on a held-out day</td></tr>
+        </table>
+        <p class="strip">Every stand is batch scored from the Model Registry in SQL. Three slow rigs sit about 25 h each above the fleet median.</p>
+        <aside class="notes">A3 registers the model and batch scores every stand as a SQL call next to the data. A3b is where the DSA team stops being a one-model shop: same data, same governance, four more answers for the agent, no new pipeline. The rig-state model is the quiet foundation; in production state labels drive every per-state feature, so you want a model, not a rule.</aside>
+      </section>
+
+      <section id="s-a3b" data-chapter="Lab A" data-nav="A3b SPCS model service">
+        <div class="eyebrow">A3b &middot; Model serving</div>
+        <h2>Serving the model on SPCS cuts live scoring from ~12 s to ~3 s</h2>
+        <div class="cols">
+          <div class="cols" style="gap:24px">
+            <div><div class="stat">~3 s</div><div class="stat-label">SPCS service ML.STUCK_PIPE_SVC</div></div>
+            <div><div class="stat" style="color:var(--sf-windy)">~12 s</div><div class="stat-label">cold warehouse UDF</div></div>
+          </div>
+          <ul class="tight">
+            <li>Powers the agent's <code>ScoreRigNow</code> tool</li>
+            <li><code>AUTO_SUSPEND_SECS = 14400</code> for the session</li>
+            <li>Suspended service adds ~80 s to first re-score</li>
+            <li>Same registry feeds edge serving later</li>
+          </ul>
+        </div>
+        <aside class="notes">This is the latency win the agent needs: re-scoring the last few stands on a rig becomes interactive. The cost to watch is cold start: if the service suspends, the first ScoreRigNow call waits about 80 seconds, so resume it first if it has been idle. Objection handling: sub-100 ms scoring at the rig edge is still an edge deployment, fed by the same registry.</aside>
+      </section>
+
+      <section id="s-cortex-arch" data-chapter="Lab A" data-nav="Cortex AI architecture">
+        <div class="eyebrow">Cortex AI &middot; DSA team</div>
+        <h2>Cortex AI architecture for the DSA team</h2>
+        <div class="arch"><svg viewBox="-3 -3 1206 476" role="img" aria-label="Cortex AI layers: governance frame, apps, APIs, context"><defs><marker id="arw-cax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8A999E"/></marker></defs><rect class="frame" x="0" y="0" width="1200" height="470" rx="14"/><text class="z" x="20" y="28" text-anchor="start">GOVERNANCE  |  POLICY CONTROL  |  AUDIT &amp; LINEAGE</text><text class="s" x="20" y="52">HOL_PTEN_ROLE RBAC applies to every tool call; every agent turn is traced</text><text class="z" x="20" y="118" text-anchor="start">APPS</text><text class="z" x="20" y="243" text-anchor="start">APIS</text><text class="z" x="20" y="373" text-anchor="start">CONTEXT</text><rect class="box o" x="190" y="75" width="310" height="85" rx="10"/><text class="t" x="345" y="112" text-anchor="middle">PTEN+ DSA app</text><text class="s" x="345" y="136" text-anchor="middle">on SPCS, calls DSA_AGENT</text><rect class="box o" x="520" y="75" width="310" height="85" rx="10"/><text class="t" x="675" y="112" text-anchor="middle">Snowflake CoCo</text><text class="s" x="675" y="136" text-anchor="middle">Cortex Code skills</text><rect class="box n" x="850" y="75" width="310" height="85" rx="10"/><text class="t n" x="1005" y="112" text-anchor="middle">Snowflake CoWork</text><text class="s" x="1005" y="136" text-anchor="middle">Next step</text><rect class="box" x="190" y="195" width="310" height="95" rx="10"/><text class="t" x="345" y="238" text-anchor="middle">Cortex Agents</text><text class="s" x="345" y="262" text-anchor="middle">DSA_AGENT</text><rect class="box" x="520" y="195" width="310" height="95" rx="10"/><text class="t" x="675" y="228" text-anchor="middle">Cortex AI Functions</text><text class="s" x="675" y="252" text-anchor="middle">AI_PARSE_DOCUMENT,</text><text class="s" x="675" y="272" text-anchor="middle">SPLIT_TEXT_RECURSIVE_CHARACTER</text><rect class="box" x="850" y="195" width="310" height="95" rx="10"/><text class="t" x="1005" y="238" text-anchor="middle">Agentic ML</text><text class="s" x="1005" y="262" text-anchor="middle">CoCo machine-learning skill</text><rect class="box" x="190" y="325" width="232" height="95" rx="10"/><text class="t" x="306" y="368" text-anchor="middle">Semantic view</text><text class="s" x="306" y="392" text-anchor="middle">DSA_DRILLING_SV</text><rect class="box" x="438" y="325" width="232" height="95" rx="10"/><text class="t" x="554" y="358" text-anchor="middle">Custom tools</text><text class="s" x="554" y="382" text-anchor="middle">GetTagWindow,</text><text class="s" x="554" y="402" text-anchor="middle">ScoreRigNow</text><rect class="box p" x="686" y="325" width="232" height="95" rx="10"/><text class="t" x="802" y="368" text-anchor="middle">Cortex Search</text><text class="s" x="802" y="392" text-anchor="middle">DRILLING_DOCS_SEARCH</text><rect class="box" x="934" y="325" width="232" height="95" rx="10"/><text class="t" x="1050" y="368" text-anchor="middle">Business logic</text><text class="s" x="1050" y="392" text-anchor="middle">flat time, MSE, drag</text><text class="s" x="190" y="450">Cortex LLMs run inside the Snowflake boundary</text></svg></div><p class="strip">Solid boxes are built in the lab. Dashed boxes are next steps.</p>
+        <aside class="notes">Before we build the agent, here is where it sits. The outer frame is governance: every tool the agent calls runs under HOL_PTEN_ROLE, so the same grants that protect the tables protect the answers, and every turn is traced for audit. The apps on top are the PTEN+ DSA app running on Snowpark Container Services and Snowflake CoCo, the Cortex Code assistant; Snowflake CoWork is a next step for business users. The APIs layer is Cortex Agents, where DSA_AGENT lives, Cortex AI Functions such as AI_PARSE_DOCUMENT and SPLIT_TEXT_RECURSIVE_CHARACTER that Lab B uses to prepare documents, and agentic ML through the CoCo machine-learning skill. The context layer is what makes the answers drilling-specific: the DSA_DRILLING_SV semantic view, the GetTagWindow and ScoreRigNow tools, the DRILLING_DOCS_SEARCH service, and the definitions of flat time, MSE and drag encoded once.</aside>
+      </section>
+
+      <section id="s-a4" data-chapter="Lab A" data-nav="A4 DSA agent">
+        <div class="eyebrow">A4 &middot; Cortex Agent</div>
+        <h2>One agent combines semantic SQL, tag retrieval and live scoring</h2>
+        <div class="cols">
+          <table>
+            <tr><th>Tool</th><th>Answers</th></tr>
+            <tr><td>DrillingAnalyst</td><td>Semantic view: risk, NPT, MSE, connections, drag</td></tr>
+            <tr><td>GetTagWindow</td><td>Selective tag retrieval by rig, tags, state, window</td></tr>
+            <tr><td>ScoreRigNow</td><td>Live re-score via the SPCS service</td></tr>
+          </table>
+          <ul class="tight">
+            <li>Fleet: "Which 5 rigs had the highest risk on Oct 12?"</li>
+            <li>Rig focus: "Show torque on RIG_007 while drilling"</li>
+            <li>Answers under your role, every tool</li>
+          </ul>
+        </div>
+        <aside class="notes">This is the payoff of Lab A. The semantic view is the business vocabulary: risk means STUCK_PIPE_RISK, flat time means connection minutes, rigs belong to basins. GetTagWindow retrieves only the tags, state and window you ask for, rather than scanning the full history. Show option B here: one agent-studio prompt creates the same semantic view and agent. Every answer runs under the user's role, so RBAC applies to every tool.</aside>
+      </section>
+
+      <section id="s-a5" data-chapter="Lab A" data-nav="A5 App and feedback">
+        <div class="eyebrow">A5 &middot; SPCS app</div>
+        <h2>Thumbs up and down land next to the trace for the team to fix</h2>
+        <div class="flow">
+          <div class="node"><b>PTEN+ DSA app</b>Fleet dashboard beside agent chat; click a rig to set context</div>
+          <div class="node"><b>Agents REST :run</b>Service OAuth token, no secrets in the image</div>
+          <div class="node orange"><b>Feedback REST</b><code>:feedback</code> with the request id</div>
+          <div class="node purple"><b>Observability</b>AI &amp; ML &raquo; Agents &raquo; DSA_AGENT</div>
+        </div>
+        <p class="strip">In SQL: <code>CORTEX_AGENT_FEEDBACK</code> events in <code>SNOWFLAKE.LOCAL.GET_AI_OBSERVABILITY_EVENTS</code>.</p>
+        <aside class="notes">The team wants an app, not a notebook. The FastAPI container runs in SPCS behind Snowflake login, authenticates with the service's own OAuth token, and calls the agent by name. Each answer returns a request id; the thumbs post to the Feedback API with that id so feedback sits next to the trace. Show both places it lands: the Observability tab and the SQL query. Bad answers become new verified queries on the semantic view.</aside>
+      </section>
+
+      <section id="s-labb" class="section-break" data-chapter="Lab B" data-nav="Lab B" data-background-color="#11567F">
+        <div class="eyebrow">Lab B &middot; 30 to 60 min</div>
+        <h2>RAG on Snowflake, two ways, one shared index</h2>
+        <aside class="notes">Bridge: the agent has an empty slot for documents. Lab B builds the retrieval foundation once, shows the LangChain way first, then plugs the same search service into the agent. The documents are lab-authored samples, not operational guidance.</aside>
+      </section>
+
+      <section id="s-b1" data-chapter="Lab B" data-nav="B1/B2 Retrieval foundation">
+        <div class="eyebrow">B1 &middot; B2</div>
+        <h2>The index is shared; only orchestration changes</h2>
+        <div class="flow">
+          <div class="node purple"><b>Stage</b>Sample PDFs; S3 external stage in production</div>
+          <div class="node purple"><b>Parse</b>AI_PARSE_DOCUMENT, layout + OCR</div>
+          <div class="node purple"><b>Chunk</b>1,500 characters, 200 overlap</div>
+          <div class="node purple"><b>Cortex Search</b>DRILLING_DOCS_SEARCH, hybrid</div>
+        </div>
+        <p class="strip">Three documents: stuck pipe prevention, hole cleaning guidelines, rig states and KPIs.</p>
+        <aside class="notes">RAG in one paragraph: the model does not know PTEN's procedures, so rather than retrain it we find the relevant passages at question time and pass them in. The knowledge base is the part worth getting right: parsed, chunked, governed and indexed once. Show the Cortex Search playground and search for overpull on connections to see hybrid scores.</aside>
+      </section>
+
+      <section id="s-b3" data-chapter="Lab B" data-nav="B3 Level 1 LangChain">
+        <div class="eyebrow">B3 &middot; Level 1</div>
+        <h2>LangChain on Snowflake: your code, your chain, TruLens to evaluate</h2>
+        <ul>
+          <li>Retriever over the same Cortex Search service</li>
+          <li><code>ChatSnowflake</code> with <code>claude-sonnet-4-5</code></li>
+          <li>TruLens run registered as External Agent <code>PTEN_DRILLING_RAG</code></li>
+          <li>Gotcha: <code>langchain-snowflake</code> 0.2.x needs <code>database=</code> and <code>schema=</code></li>
+        </ul>
+        <aside class="notes">Level 1 is the open-source reference point and the right teaching tool. Point out what the team now owns: prompts, retries, version pinning and tracing, which exists only because we added TruLens. That is fine when the app already lives in a Python service. Keep this brisk; the contrast with B4 is the point.</aside>
+      </section>
+
+      <section id="s-b4" data-chapter="Lab B" data-nav="B4 Level 2 Search as tool">
+        <div class="eyebrow">B4 &middot; Level 2</div>
+        <h2>One more tool, and the agent answers with data and documents</h2>
+        <div class="cols">
+          <ul class="tight">
+            <li>Add <code>DrillingDocs</code> to DSA_AGENT, same index</li>
+            <li>Agent plans DrillingAnalyst plus DrillingDocs</li>
+            <li>One answer with citations; trace is native</li>
+            <li>The SPCS app answers it with no redeploy</li>
+          </ul>
+          <blockquote class="quote" style="font-size:var(--fs-lead)">"Which rigs showed stuck-pipe risk on October 12, and what does our practice guide say to check?"</blockquote>
+        </div>
+        <aside class="notes">No new index, no new chunks. Re-specify the Lab A agent with one more tool, then ask the question that needs both. Open the trace in AI and ML, Agents, DSA_AGENT, to show the two planned steps. Then switch to the app and ask it there: the app calls the agent by name, so it picks up the new tool without a redeploy.</aside>
+      </section>
+
+      <section id="s-deploy-insights" data-chapter="Lab B" data-nav="One agent, three tools">
+        <div class="eyebrow">DSA_AGENT &middot; after B4</div>
+        <h2>One agent, three kinds of tools</h2>
+        <div class="arch"><svg viewBox="-3 -3 1206 456" role="img" aria-label="Agent access through REST and Snowsight, DSA_AGENT, and three tool types: Cortex Search, Cortex Analyst, custom tools"><defs><marker id="arw-dpi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8A999E"/></marker></defs><rect class="box o" x="0" y="0" width="285" height="80" rx="10"/><text class="t" x="142" y="35" text-anchor="middle">REST API</text><text class="s" x="142" y="59" text-anchor="middle">PTEN+ app calls :run</text><path class="ln" marker-end="url(#arw-dpi)" d="M142,80 V118"/><rect class="box o" x="305" y="0" width="285" height="80" rx="10"/><text class="t" x="448" y="35" text-anchor="middle">Snowsight</text><text class="s" x="448" y="59" text-anchor="middle">agent playground</text><path class="ln" marker-end="url(#arw-dpi)" d="M447,80 V118"/><rect class="box n" x="610" y="0" width="285" height="80" rx="10"/><text class="t n" x="752" y="35" text-anchor="middle">MCP</text><text class="s" x="752" y="59" text-anchor="middle">Next step</text><path class="ln" marker-end="url(#arw-dpi)" d="M752,80 V118"/><rect class="box n" x="915" y="0" width="285" height="80" rx="10"/><text class="t n" x="1058" y="35" text-anchor="middle">A2A</text><text class="s" x="1058" y="59" text-anchor="middle">Next step</text><path class="ln" marker-end="url(#arw-dpi)" d="M1057,80 V118"/><rect class="box o" x="0" y="120" width="1200" height="90" rx="10"/><text class="t" x="600" y="160" text-anchor="middle">Cortex Agents: DSA_AGENT</text><text class="s" x="600" y="184" text-anchor="middle">plan, tool use, reflection, monitor</text><rect class="box p" x="0" y="260" width="380" height="190" rx="10"/><text class="t" x="190" y="312" text-anchor="middle">Cortex Search: unstructured</text><text class="s" x="190" y="336" text-anchor="middle">DrillingDocs, DRILLING_DOCS_SEARCH</text><text class="s" x="190" y="360" text-anchor="middle">Stuck pipe prevention</text><text class="s" x="190" y="384" text-anchor="middle">Hole cleaning guidelines</text><text class="s" x="190" y="408" text-anchor="middle">Rig states and KPIs</text><path class="ln" marker-end="url(#arw-dpi)" d="M190,210 V258"/><rect class="box" x="410" y="260" width="380" height="190" rx="10"/><text class="t" x="600" y="312" text-anchor="middle">Cortex Analyst: structured</text><text class="s" x="600" y="336" text-anchor="middle">DrillingAnalyst, DSA_DRILLING_SV</text><text class="s" x="600" y="360" text-anchor="middle">Stuck-pipe scores, MSE</text><text class="s" x="600" y="384" text-anchor="middle">Connection times, drag, overpull</text><text class="s" x="600" y="408" text-anchor="middle">NPT events, well header</text><path class="ln" marker-end="url(#arw-dpi)" d="M600,210 V258"/><rect class="box" x="820" y="260" width="380" height="190" rx="10"/><text class="t" x="1010" y="324" text-anchor="middle">Custom tools: extensibility</text><text class="s" x="1010" y="348" text-anchor="middle">GetTagWindow procedure</text><text class="s" x="1010" y="372" text-anchor="middle">ScoreRigNow procedure</text><text class="s" x="1010" y="396" text-anchor="middle">calls STUCK_PIPE_SVC</text><path class="ln" marker-end="url(#arw-dpi)" d="M1010,210 V258"/></svg></div><p class="strip">Solid boxes are built in the lab. Dashed boxes are next steps.</p>
+        <aside class="notes">With B4 done, this is the whole agent. People reach DSA_AGENT through the REST API, which is how the PTEN+ app calls it, or through the Snowsight playground; MCP and agent-to-agent access are next steps on the same object. The agent plans, calls tools, reflects on the results and is monitored natively. It now has three kinds of tools: Cortex Search over your documents for the unstructured questions, Cortex Analyst over the semantic view for scores, MSE, connection times, drag and NPT, and custom procedures for anything else, here GetTagWindow for selective tag retrieval and ScoreRigNow calling the model service. Adding a capability means adding a tool, not rebuilding the agent.</aside>
+      </section>
+
+      <section id="s-horizon" data-chapter="Wrap" data-nav="Horizon Catalog">
+        <div class="eyebrow">Horizon Catalog</div>
+        <h2>Horizon Catalog governs every layer of the lab</h2>
+        <div class="arch"><svg viewBox="-3 -3 1206 481" role="img" aria-label="Horizon Catalog: compute and AI, APIs, catalog capabilities, storage"><defs><marker id="arw-hor" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8A999E"/></marker></defs><text class="z" x="0" y="45" text-anchor="start">COMPUTE &amp; AI</text><text class="z" x="0" y="135" text-anchor="start">APIS</text><text class="z" x="0" y="260" text-anchor="start">CATALOG</text><text class="z" x="0" y="420" text-anchor="start">STORAGE</text><rect class="box" x="170" y="0" width="240" height="80" rx="10"/><text class="t" x="290" y="35" text-anchor="middle">SQL</text><text class="s" x="290" y="59" text-anchor="middle">HOL_PTEN_WH</text><rect class="box" x="428" y="0" width="240" height="80" rx="10"/><text class="t" x="548" y="35" text-anchor="middle">Notebooks + ML</text><text class="s" x="548" y="59" text-anchor="middle">Lab A and Lab B</text><rect class="box" x="686" y="0" width="240" height="80" rx="10"/><text class="t" x="806" y="35" text-anchor="middle">SPCS</text><text class="s" x="806" y="59" text-anchor="middle">DSA_APP, STUCK_PIPE_SVC</text><rect class="box" x="944" y="0" width="240" height="80" rx="10"/><text class="t" x="1064" y="35" text-anchor="middle">Cortex Code</text><text class="s" x="1064" y="59" text-anchor="middle">CoCo skills</text><rect class="box" x="170" y="105" width="240" height="48" rx="10"/><text class="t" x="290" y="134" text-anchor="middle">SQL API</text><rect class="box" x="428" y="105" width="240" height="48" rx="10"/><text class="t" x="548" y="134" text-anchor="middle">REST API</text><rect class="box" x="686" y="105" width="240" height="48" rx="10"/><text class="t" x="806" y="134" text-anchor="middle">Iceberg REST catalog API</text><rect class="box" x="944" y="105" width="240" height="48" rx="10"/><text class="t" x="1064" y="134" text-anchor="middle">MCP</text><rect class="box" x="170" y="180" width="1030" height="160" rx="12"/><text class="t" x="190" y="210">Horizon Catalog</text><text class="s" x="190" y="234">Interoperability, Context, Governance and Security</text><rect class="box" x="190" y="258" width="72" height="38" rx="19"/><text class="c" x="226" y="282" text-anchor="middle">Search</text><rect class="box" x="272" y="258" width="79" height="38" rx="19"/><text class="c" x="312" y="282" text-anchor="middle">Lineage</text><rect class="box" x="361" y="258" width="131" height="38" rx="19"/><text class="c" x="426" y="282" text-anchor="middle">Semantic Views</text><rect class="box" x="502" y="258" width="131" height="38" rx="19"/><text class="c" x="568" y="282" text-anchor="middle">Access Control</text><rect class="box n" x="643" y="258" width="116" height="38" rx="19"/><text class="c n" x="701" y="282" text-anchor="middle">Data Quality</text><rect class="box n" x="769" y="258" width="213" height="38" rx="19"/><text class="c n" x="876" y="282" text-anchor="middle">Sensitive Data Protection</text><rect class="box n" x="992" y="258" width="124" height="38" rx="19"/><text class="c n" x="1054" y="282" text-anchor="middle">AI Guardrails</text><text class="s" x="190" y="324">Solid: used in the lab. Dashed: next step.</text><rect class="box" x="170" y="365" width="336" height="110" rx="10"/><text class="t" x="338" y="415" text-anchor="middle">Snowflake tables</text><text class="s" x="338" y="439" text-anchor="middle">RAW, AGG, LABELS, PREDICTIONS</text><rect class="box n" x="517" y="365" width="336" height="110" rx="10"/><text class="t n" x="685" y="405" text-anchor="middle">Apache Iceberg tables</text><text class="s" x="685" y="429" text-anchor="middle">where QuestDB / S3 output</text><text class="s" x="685" y="449" text-anchor="middle">can stay</text><rect class="box p" x="864" y="365" width="336" height="110" rx="10"/><text class="t" x="1032" y="405" text-anchor="middle">Stage</text><text class="s" x="1032" y="429" text-anchor="middle">drilling PDFs today;</text><text class="s" x="1032" y="449" text-anchor="middle">S3 external stage next</text></svg></div>
+        <aside class="notes">Step back from the labs. Everything you ran, the SQL on HOL_PTEN_WH, the notebooks and ML, the two SPCS services and Cortex Code, reached the data through the same catalog, over the SQL API, the REST API, the Iceberg REST catalog API or MCP. In the lab you used search, lineage, semantic views and access control. Data quality monitoring, sensitive data protection and AI guardrails are next steps on the same objects. At the bottom: today's data sits in Snowflake tables across RAW, AGG, LABELS and PREDICTIONS, and the documents sit on a stage. In production your QuestDB output can stay in Iceberg on S3 and the documents can come from an S3 external stage, with the same governance on top.</aside>
+      </section>
+
+<section id="s-trail" data-chapter="Wrap" data-nav="Snowflake Trail">
+        <div class="eyebrow">Observability</div>
+        <h2>Observability built in: Snowflake Trail</h2>
+        <div class="arch"><svg viewBox="-3 -3 1206 392" role="img" aria-label="Snowflake Trail: traces, feedback, evaluations, logs, metrics into AI, pipeline, application and infrastructure observability"><defs><marker id="arw-trl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8A999E"/></marker></defs><rect class="box" x="0" y="0" width="330" height="66" rx="33"/><text class="t" x="165" y="28" text-anchor="middle">Traces</text><text class="s" x="165" y="52" text-anchor="middle">agent thread, turn, span</text><path class="ln" marker-end="url(#arw-trl)" d="M330,33 L438,190"/><rect class="box" x="0" y="80" width="330" height="66" rx="33"/><text class="t" x="165" y="108" text-anchor="middle">Feedback</text><text class="s" x="165" y="132" text-anchor="middle">app thumbs up / down</text><path class="ln" marker-end="url(#arw-trl)" d="M330,113 L438,190"/><rect class="box" x="0" y="160" width="330" height="66" rx="33"/><text class="t" x="165" y="188" text-anchor="middle">Evaluations</text><text class="s" x="165" y="212" text-anchor="middle">TruLens on PTEN_DRILLING_RAG</text><path class="ln" marker-end="url(#arw-trl)" d="M330,193 L438,190"/><rect class="box" x="0" y="240" width="330" height="66" rx="33"/><text class="t" x="165" y="268" text-anchor="middle">Logs</text><text class="s" x="165" y="292" text-anchor="middle">DSA_APP, STUCK_PIPE_SVC</text><path class="ln" marker-end="url(#arw-trl)" d="M330,273 L438,190"/><rect class="box" x="0" y="320" width="330" height="66" rx="33"/><text class="t" x="165" y="348" text-anchor="middle">Metrics</text><text class="s" x="165" y="372" text-anchor="middle">warehouse, compute pool</text><path class="ln" marker-end="url(#arw-trl)" d="M330,353 L438,190"/><rect class="box o" x="440" y="115" width="280" height="150" rx="10"/><text class="t" x="580" y="185" text-anchor="middle">Snowflake Trail</text><text class="s" x="580" y="209" text-anchor="middle">telemetry in your account</text><rect class="box" x="790" y="0" width="410" height="86" rx="10"/><text class="t" x="995" y="28" text-anchor="middle">AI Observability</text><text class="s" x="995" y="52" text-anchor="middle">Agents » DSA_AGENT » Observability</text><text class="s" x="995" y="72" text-anchor="middle">More tools » TruLens</text><path class="ln" marker-end="url(#arw-trl)" d="M720,190 L788,43"/><rect class="box n" x="790" y="98" width="410" height="86" rx="10"/><text class="t n" x="995" y="136" text-anchor="middle">Pipeline Observability</text><text class="s" x="995" y="160" text-anchor="middle">Next step</text><path class="ln" marker-end="url(#arw-trl)" d="M720,190 L788,141"/><rect class="box" x="790" y="196" width="410" height="86" rx="10"/><text class="t" x="995" y="234" text-anchor="middle">Application Observability</text><text class="s" x="995" y="258" text-anchor="middle">Services &amp; jobs » DSA_APP</text><path class="ln" marker-end="url(#arw-trl)" d="M720,190 L788,239"/><rect class="box" x="790" y="294" width="410" height="86" rx="10"/><text class="t" x="995" y="332" text-anchor="middle">Infrastructure Observability</text><text class="s" x="995" y="356" text-anchor="middle">compute pool, warehouse load</text><path class="ln" marker-end="url(#arw-trl)" d="M720,190 L788,337"/></svg></div><p class="strip">Solid boxes are built in the lab. Dashed boxes are next steps.</p>
+        <aside class="notes">Nothing in the lab needed a separate monitoring stack. The agent writes traces per thread, turn and span; the app's thumbs land as feedback on those traces; the LangChain chain in Lab B is evaluated with TruLens as PTEN_DRILLING_RAG; the app and model service write logs; and the warehouse and compute pool report metrics. Snowflake Trail brings these together. To find them: AI and ML, Agents, DSA_AGENT, Observability for the agent, AI and ML, More tools, TruLens for the evaluations, Monitoring, Services and jobs, DSA_APP for the app logs, and the compute pool and warehouse load views for infrastructure. Pipeline observability for scheduled jobs is a next step once retraining is scheduled.</aside>
+      </section>
+
+      <section id="s-versus" data-chapter="Wrap" data-nav="Vendor agnostic vs native">
+        <div class="eyebrow">Versus callouts</div>
+        <h2>Every step has a defensible vendor agnostic choice; native removes the ops</h2>
+        <table>
+          <tr><th>Layer</th><th>Vendor agnostic</th><th>Snowflake native</th></tr>
+          <tr><td>Features</td><td>Feast, pandas windows</td><td>Feature Store on dynamic tables</td></tr>
+          <tr><td>Training</td><td>EC2 + MLflow server</td><td>Notebook + Experiments</td></tr>
+          <tr><td>Serving</td><td>Flask / SageMaker endpoint</td><td>Registry in SQL, SPCS service</td></tr>
+          <tr><td>Agent</td><td>LangGraph / CrewAI</td><td>Cortex Agent under user's role</td></tr>
+          <tr><td>RAG index</td><td>FAISS / Pinecone + refresh job</td><td>Cortex Search, managed refresh</td></tr>
+        </table>
+        <aside class="notes">Be fair here; the notebooks are. Keep exotic signal processing where it runs well, keep MLflow if the team is standardized on it, and reach for a framework when a workflow spans many external systems, since the native agent can be one of its tools via REST or MCP. The argument for native is less to operate and one governance model, not that the alternatives are wrong. Hosting follows the same logic: the container is portable either way.</aside>
+      </section>
+
+      <section id="s-twoways" data-chapter="Wrap" data-nav="Run it two ways">
+        <div class="eyebrow">Two ways</div>
+        <h2>Run each step two ways: cells as written, or one Cortex Code prompt</h2>
+        <div class="cols">
+          <div>
+            <div class="card"><b>A: plain Python / SQL</b><p>Run the cells. Teaches the APIs.</p></div>
+            <div class="card purple" style="margin-top:18px"><b>B: Cortex Code skill</b><p>machine-learning, sql-author, agent-studio, snowflake-apps, search-optimization. Same object names.</p></div>
+          </div>
+          <div class="prompt"><b>A4 sample prompt (agent-studio)</b><br>Create semantic view HOL_PTEN_ML.AGENT.DSA_DRILLING_SV over the well header, scores, NPT, MSE, connection and drag tables joined on RIG_ID, then create Cortex Agent DSA_AGENT with it as DrillingAnalyst plus GetTagWindow and ScoreRigNow.</div>
+        </div>
+        <aside class="notes">Option A is the cells as written: plain Python and SQL that teach the APIs. Option B is one Cortex Code prompt per step using the matching skill, and on the agent step the same semantic view and agent appear from one sentence. The full prompts are in each notebook section and produce the same object names, so the downstream cells still work.</aside>
+      </section>
+
+      <section id="s-followups" data-chapter="Wrap" data-nav="Follow-ups">
+        <div class="eyebrow">Out of scope today</div>
+        <h2>Follow-ups reuse the same pattern but need new data</h2>
+        <table>
+          <tr><th>Follow-up</th><th>What it needs</th></tr>
+          <tr><td>Kick and loss detection</td><td>Pit volume, flow in vs out at 1 Hz; edge inference under 500 ms</td></tr>
+          <tr><td>Stick-slip, bit bounce, whirl</td><td>1 to 50 Hz torque and downhole vibration</td></tr>
+          <tr><td>Geomechanics</td><td>Gamma ray, resistivity, mud weight; offset wells</td></tr>
+          <tr><td>Geosteering</td><td>M/LWD logs, surveys, toolface, dogleg</td></tr>
+          <tr><td>Equipment RUL</td><td>Vibration, temperature, ton-mile history</td></tr>
+        </table>
+        <aside class="notes">Each follow-up reuses features, registry, agent tool and app panel. Kick detection is the one to handle carefully: it must run at the edge in under 500 ms, so the cloud trains and monitors. Also mention bit wear and economic trip point, gas influx profiling, and irregular downhole data needing as-of joins. Ask which one they want to drive next.</aside>
+      </section>
+
+      <section id="s-checklist" data-chapter="Wrap" data-nav="Take it home">
+        <div class="eyebrow">Take it home</div>
+        <h2>Take it home: rerun, extend, tear down</h2>
+        <div class="cols-3">
+          <div class="card"><b>Rerun</b><p>Same six steps in your own account from <code>github.com/sfc-gh-srahman/pten-hol</code>, as ACCOUNTADMIN.</p></div>
+          <div class="card orange"><b>Extend</b><p>Each notebook has <b>Exercise for later</b> sections: rolling windows, tuning, scheduling, PTEN documents from S3, chunking.</p></div>
+          <div class="card purple"><b>Tear down</b><p>Run <code>setup/99_teardown.sql</code>. Then delete the Git workspace and drop <code>HOL_PTEN_GIT</code>.</p></div>
+        </div>
+        <aside class="notes">Everything you saw today is in the public repository, so you can rerun it end to end in your own account. The Exercise for later sections are left open on purpose: they are the natural next steps, from rolling windows across stands and distributed tuning to scheduling the scoring, swapping in your own documents from S3 and testing chunk sizes. When you are finished, the teardown script removes the services, the HOL_PTEN_ML database, the compute pool, the warehouse, the PyPI integration and the lab role. Teardown is irreversible, so export anything you want to keep first.</aside>
+      </section>
+
+      <section id="s-close" class="closing" data-chapter="Wrap" data-nav="Closing">
+        <h2>Same data, one governance model, from features to agent</h2>
+        <ul>
+          <li>Pick the first follow-up to drive</li>
+          <li>Swap in PTEN's documents from S3 for Lab B</li>
+          <li>Turn thumbs-down answers into verified queries</li>
+        </ul>
+        <aside class="notes">Recap what they built: governed features, a tracked and registered model served from SPCS, four extra drilling insights, a DSA agent with semantic SQL, tag retrieval and live scoring, and an app with feedback. Then pick the first follow-up you want to drive.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="sf-wordmark"><img src="assets/snowflake-logo-color-rgb.svg" alt="Snowflake"></div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="dist/plugin/notes.js"></script>
+  <script src="dist/plugin/highlight.js"></script>
+  <script src="dist/plugin/zoom.js"></script>
+  <script>
+    var themeLink = document.getElementById('theme');
+    var q = new URLSearchParams(location.search).get('theme');
+    if (q === 'light' || q === 'dark') themeLink.href = 'theme/snowflake-' + q + '.css';
+
+    Reveal.initialize({
+      hash: true,
+      width: 1280,
+      height: 720,
+      margin: 0.06,
+      center: false,
+      slideNumber: 'c/t',
+      transition: 'fade',
+      pdfMaxPagesPerSlide: 1,
+      pdfSeparateFragments: false,
+      plugins: [RevealNotes, RevealHighlight, RevealZoom]
+    });
+
+    Reveal.addKeyBinding({ keyCode: 84, key: 'T', description: 'Toggle light/dark theme' }, function () {
+      themeLink.href = themeLink.href.indexOf('dark') > -1 ? 'theme/snowflake-light.css' : 'theme/snowflake-dark.css';
+    });
+
+    // Left navigation panel, built from the DOM.
+    (function () {
+      var panel = document.getElementById('nav-panel');
+      var btn = document.getElementById('nav-toggle');
+      var links = [];
+      var lastCh = null;
+      document.querySelectorAll('.reveal .slides > section').forEach(function (sec, h) {
+        var ch = sec.getAttribute('data-chapter') || '';
+        if (ch !== lastCh) {
+          var hd = document.createElement('div');
+          hd.className = 'ch'; hd.textContent = ch; panel.appendChild(hd); lastCh = ch;
+        }
+        var a = document.createElement('a');
+        a.textContent = (h + 1) + '. ' + (sec.getAttribute('data-nav') || sec.id);
+        a.addEventListener('click', function () { Reveal.slide(h, 0); });
+        panel.appendChild(a);
+        links.push(a);
+      });
+      function mark() {
+        var idx = Reveal.getIndices().h;
+        links.forEach(function (a, i) { a.classList.toggle('current', i === idx); });
+      }
+      function toggle() {
+        var open = document.body.classList.toggle('nav-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      btn.addEventListener('click', toggle);
+      Reveal.addKeyBinding({ keyCode: 78, key: 'N', description: 'Toggle slide index' }, toggle);
+      Reveal.on('ready', mark);
+      Reveal.on('slidechanged', mark);
+      mark();
+    })();
+  </script>
+</body>
+</html>

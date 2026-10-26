@@ -1,0 +1,14 @@
+.DS_Store
+*.gdoc
+*.gsheet
+*.gslides
+.ipynb_checkpoints/
+__pycache__/
+.venv/
+*.env
+.env*
+connections.toml
+*.p8
+*.pem
+__pycache__/
+*.pyc
