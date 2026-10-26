@@ -360,7 +360,7 @@
       <section id="s-title" class="title" data-chapter="Intro" data-nav="Title" data-background-gradient="linear-gradient(135deg, #003545 0%, #11567F 60%, #29B5E8 140%)">
         <div class="eyebrow">Patterson-UTI hands-on lab &middot; Houston &middot; Oct 28, 2026</div>
         <h1>From drilling data to a DSA agent, without moving the data</h1>
-        <p class="subtitle">Lab A: stuck-pipe ML to a Cortex Agent in a container. Lab B: RAG on the same agent.</p>
+        <p class="subtitle">Lab A: drilling ML to a Cortex Agent and an app. Lab B: RAG over drilling documents on the same agent.</p>
         <aside class="notes">Welcome. Today is hands-on: two notebooks on synthetic data shaped like PTEN's tall, skinny 1-minute tag table. By the end you will have a stuck-pipe model, a DSA agent that answers drilling questions, and an app serving it. Everything stays in Snowflake. This deck is the map; the notebooks are the source of truth.</aside>
       </section>
 
@@ -390,14 +390,14 @@
 
       <section id="s-why" data-chapter="Intro" data-nav="Why this lab">
         <div class="eyebrow">Why</div>
-        <h2>One question drives the day: which rigs are trending toward stuck pipe?</h2>
+        <h2>What data science teams need: models that reach the rig floor, not just a notebook</h2>
         <div class="cols-3">
-          <div class="card"><b>Today: stuck pipe</b><p>Which rigs are trending, what the sensors show, what the crew should check.</p></div>
-          <div class="card orange"><b>Today: three more pillars</b><p>Drilling optimization (MSE), flat time (connections), wellbore stability (drag), plus rig state.</p></div>
-          <div class="card purple"><b>Follow-ups</b><p>Kick detection, stick-slip, geomechanics, geosteering, equipment RUL.</p></div>
+          <div class="card"><b>Speed to value</b><p>Go from raw 1-minute tags to features, trained models and live scoring in one platform, without copying data or stitching tools.</p></div>
+          <div class="card orange"><b>Trust and governance</b><p>Tracked experiments, a versioned registry, explainability and RBAC, so engineers and leadership can rely on the answer.</p></div>
+          <div class="card purple"><b>Adoption</b><p>Put predictions, metrics and procedures behind one agent and app the drilling team actually uses.</p></div>
         </div>
-        <p class="strip">Lab A answers the first two parts of the question. Lab B adds the third, from documents.</p>
-        <aside class="notes">Frame this as the DSA team's real question set. Stuck pipe is the anchor, but the same pipeline covers MSE, connection flat time and drag cheaply, so the team stops being a one-model shop. State the scope boundary up front: the follow-ups need new data, higher-frequency signals or edge inference, so we list them at the end rather than fake them.</aside>
+        <p class="strip">The use cases: stuck pipe, drilling optimization (MSE), flat time (connections) and wellbore stability (drag). Lab A builds the pipeline and agent; Lab B adds knowledge from documents.</p>
+        <aside class="notes">Frame this from the data science seat. Teams care about three things: how fast a model gets from idea to production, whether the business can trust it, and whether anyone uses it. The lab covers four drilling use cases on one shared pipeline, so the team is not a one-model shop. Follow-ups like kick detection, stick-slip and equipment RUL need new data or edge inference, so we list them at the end.</aside>
       </section>
 
       <section id="s-arch" data-chapter="Intro" data-nav="Architecture">

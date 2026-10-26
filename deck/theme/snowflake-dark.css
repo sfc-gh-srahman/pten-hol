@@ -7,3 +7,7 @@
   --r-link-color-hover: #71D3DC;
   --sf-surface: #12303F; --sf-rule: #23495A; --sf-muted: #9FB3BB;
 }
+
+/* Header-only slides: center horizontally and vertically */
+.reveal .slides section.title, .reveal .slides section.section-break { text-align: center !important; align-items: center !important; justify-content: center !important; flex-direction: column; }
+.reveal .slides section.title .subtitle, .reveal .slides section.section-break p { margin-left: auto; margin-right: auto; }
