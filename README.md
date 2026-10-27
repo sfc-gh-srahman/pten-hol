@@ -61,10 +61,19 @@ them back to this public repository.
 
 ### 3. Lab A
 
-Open `lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb` and connect it. Any runtime and warehouse your
-account already has will do to start, for example the default CPU compute pool and `COMPUTE_WH`.
-The first code cells create `HOL_PTEN_WH` and switch to it. Then **Run all**, or step through cell by
-cell.
+Open `lab-a-ml-to-agent/PTEN_HOL_A_ML_TO_AGENT.ipynb` and click **Run all** (or **Connect**).
+A **Connect your notebook** dialog appears:
+
+- Keep the defaults: any service name, the `SNOWFLAKE.SNOWPARK.PYPI_SHARED_REPOSITORY` artifact
+  repository, distributed compute off, and `SYSTEM_COMPUTE_POOL_CPU`.
+- Click **Create and connect**. The first connect takes a minute or two while your notebook service
+  starts.
+- You don't need to pick a role or warehouse in the notebook toolbar, and you don't need to run
+  anything before the notebook. The first code cells switch to `ACCOUNTADMIN`, create
+  `HOL_PTEN_ROLE`, `HOL_PTEN_WH` and the rest of the lab objects, and then switch your session to
+  them.
+
+Then **Run all**, or step through cell by cell.
 
 ### 4. The app (A5)
 
