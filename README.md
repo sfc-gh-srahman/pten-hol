@@ -129,8 +129,6 @@ no longer need the Git workspace, delete it, then run `DROP API INTEGRATION HOL_
 setup/              00 account setup, 01 synthetic data, 02 insights (run by Lab A), 99 teardown
 lab-a-ml-to-agent/  notebook, dsa_agent.sql, deploy_app.sql, app/ (FastAPI service + web UI)
 lab-b-rag/          notebook, rag_foundation.sql, add_search_to_agent.sql, docs/ (sample PDFs + source)
-reference/          RAG architecture mapping (linked from Lab B)
-deck/               the lab slides (open deck/index.html in a browser)
 ```
 
 ## About the data and documents

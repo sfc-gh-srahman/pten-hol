@@ -12,3 +12,7 @@ connections.toml
 *.pem
 __pycache__/
 *.pyc
+
+# Instructor-only, not published
+deck/
+reference/
