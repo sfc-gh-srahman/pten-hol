@@ -77,15 +77,10 @@ Then **Run all**, or step through cell by cell.
 
 ### 4. The app (A5)
 
-From a laptop with Docker or Podman:
-
-```bash
-git clone https://github.com/sfc-gh-srahman/pten-hol && cd pten-hol
-snow sql -c <connection> -q "SHOW IMAGE REPOSITORIES IN SCHEMA HOL_PTEN_ML.APP"   # copy repository_url
-snow spcs image-registry login -c <connection>
-docker build --platform linux/amd64 -t <repository_url>/dsa-app:v8 lab-a-ml-to-agent/app   # or podman
-docker push <repository_url>/dsa-app:v8
-```
+From a laptop with Docker or Podman: run the A5 cell that prints the build commands. It fills in
+this account's image registry URL and your user name, so you copy four lines into a terminal and
+run them. `docker login` asks for your Snowflake password. With Podman, use `podman` in place of
+`docker`.
 
 Then run the A5 cells. The PTEN+ DSA app is a fleet dashboard (KPI tiles, risk by rig, risk and drag
 trend, drilling channels, connection time vs fleet, MSE vs ROP, rig-state classifier, NPT by basin)
